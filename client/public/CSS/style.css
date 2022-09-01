@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=IBM+Plex+Sans:wght@500&family=Courgette&family=Poppins:wght@200;300;400&family=Roboto&family=Roboto+Slab&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: 'Poppins', 'Courier New', Courier, monospace;
+}
+
+:root{
+    --orange: #ff4500;
+    --blue: #1484d6;
+    --light-blue: #dae0e6;
+    --grey: #a6a9aa;
+    --dark-grey: #878a8c;
+}
+
+body{
+    background-color: var(--light-blue);
+}
+/* Start Styling Header */
+nav {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    height: 35px;
+    gap: 50px;
+    background-color: white;
+}
+
+.logo-name {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    margin-right: 40px;
+}
+
+img.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+h2.site-name {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+button.btn.search-btn {
+    position: absolute;
+    font-size: 20px;
+    color: var(--dark-grey);
+    border: none;
+    margin-left: 16px;
+    background-color: #dfdfdf12;
+}
+
+input.search-input {
+    padding: 6px 10px 6px 53px;
+    font-size: 16px;
+    width: 600px;
+    background-color: #dfdfdf30;
+    border: 1px solid #e3dddd;
+    border-radius: 3px;
+}
+
+input.search-input:focus, input.search-input:hover  {
+    background-color: white;
+    outline: 1px solid var(--blue);
+}
+
+button.btn.search-btn:focus, button.btn.search-btn:hover{
+    background-color: white;
+}
+
+button.log-in {
+    border: 2px solid var(--blue);
+    background-color: white;
+    color: var(--blue);
+    padding: 1px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+button.log-in:hover{
+    background-color: #f3f3f3c7;
+}
+
+button.sign-up {
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    padding: 3px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    margin-left: 13px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 6px 14px;
+    gap: 6px;
+    font-size: 23px;
+    color: var(--dark-grey);
+}
+
+.user-profile:hover {
+    border: 1px solid #8080803d;
+    border-radius: 5px;
+    background-color: #dfd8d817;
+}
+/* End Styling Header */
+
+/* Start Styling Trending Section */
+section.trending {
+    padding: 10px 12%;
+}
+
+p.trend-section-title {
+    color: #665e5e;
+    margin: 10px;
+}
+
+.trend-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.trend-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-image: url('https://www.reuters.com/resizer/Mgqret9qfgkZ4psni1pELqHx_IQ=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/TR22RGDOFJLRZJHMHUWCMOPHQU.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 190px;
+    position: relative;
+    border-radius: 12px;
+}
+
+.trend-card:hover{
+    cursor: pointer;
+}
+
+.trend-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    color: white;
+    background-color: #80808063;
+    padding: 7px;
+    font-size: 16px;
+}
+
+p.trend-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+/* End Styling Trending Section */
