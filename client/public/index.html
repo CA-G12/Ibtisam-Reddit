@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/login.signUp.style.css">
     <link rel="shortcut icon" href="./assets/reddit-logo.png" type="image/x-icon">
-    <script src="./JS/Login/dom.js" defer></script>
     <title>Ibtisam Reddit</title>
 </head>
 <body>
@@ -27,7 +26,7 @@
                 <button class="log-in" id="login-btn">
                     Login
                 </button>
-                <button class="sign-up">
+                <button class="sign-up" id="sign-up-btn">
                     Sign up
                 </button>
             </div>
@@ -68,6 +67,7 @@
             </div>
         </div>
     </section>
+
     <main>
         <section class="posts">
 
@@ -187,11 +187,58 @@
 
                 <div class="login-down">
                     <p class="forget">Forgot your <span style="color:blue"> username </span> or <span style="color:blue"> password </span> ?</p>
-                    <p class="newToReddit">New to Reddit? <span style="color:blue"> Sign up </span></p>
+                    <p class="newToReddit">New to Reddit? <span style="color:blue" id="sign-from-login"> Sign up </span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="sign-modal">
+        <div class="modal-container">
+            <div class="left-img"></div>
+            <div class="sign-container">
+                <button id="close-sign"> 
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <div class="sign-title">
+                    <p class="log-title">Sign Up</p>
+                    <p style="font-size:12px;">By continuing, you agree to our <span style="color:blue"> User Agreement </span> and <span style="color:blue">Privacy Policy </span> .</p>
+                </div>
+
+                <div class="sign-ways-btn">
+                    <button class="way-btn">
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                        المواصلة باستخدام Google 
+                    </button>
+                    <button class="way-btn">
+                        <i class="fa fa-apple" aria-hidden="true"></i>
+                        Continue With Apple
+                    </button>
+                    <button class="way-btn">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        Continue With Email
+                    </button>
+                </div>
+
+                <div class="hr-design-sign">
+                    <hr > OR <hr style="margin-left:20px;" >
+                </div>
+                <div class="login-btns">
+                    <input type="text" placeholder="Username">
+                    <input type="email" placeholder="Email">
+                    <input type="password"  placeholder="Password">
+                    <input type="password"  placeholder="Confirm Your Password">
+                </div>
+                <button class="login" id="sign-btn"> Sign up </button>
+
+                <div class="login-down">
+                    <p class="forget-sign">Forgot your <span style="color:blue"> username </span> or <span style="color:blue"> password </span> ?</p>
+                    <p class="newToReddit">You have an account? <span style="color:blue" id="log-from-sign"> Log in </span></p>
                 </div>
             </div>
         </div>
     </section>
     <script src="https://use.fontawesome.com/cf3935a44e.js"></script>
+    <script src="./JS/authentication/dom.js"></script>
 </body>
 </html>

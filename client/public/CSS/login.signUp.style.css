@@ -1,4 +1,4 @@
-section#login-modal {
+section#login-modal, #sign-modal {
     margin-bottom: 200px;
     margin-left: 100px;
     position: fixed;
@@ -32,7 +32,13 @@ section#login-modal {
     background-color: white;
 }
 
-button#close-login {
+.sign-container {
+    padding: 24px;
+    width: 100%;
+    background-color: white;
+}
+
+button#close-login, button#close-sign {
     float: right;
     background-color: white;
     border: none;
@@ -42,6 +48,10 @@ button#close-login {
 
 .login-title {
     margin: 0px 0 35px;
+}
+
+.sign-title {
+    margin: 0px 0 18px;
 }
 
 p.log-title {
@@ -54,6 +64,13 @@ p.log-title {
     flex-direction: column;
     align-items: flex-start;
     height: 185px;
+}
+
+.sign-ways-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 158px;
 }
 
 button.way-btn {
@@ -76,6 +93,13 @@ button.way-btn {
     color: #c1c1c1;
 }
 
+.hr-design-sign {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #c1c1c1;
+}
+
 hr {
     width: 100px;
     margin-right: 20px;
@@ -87,7 +111,7 @@ hr {
     width: 204px;
 }
 
-input#username, input#Password {
+input {
     height: 41px;
     width: 250px;
     padding: 15px;
@@ -95,11 +119,11 @@ input#username, input#Password {
     margin-bottom: 10px;
 }
 
-input#username:focus, input#Password:focus{
+input:focus{
     outline: none;
 }
 
-button#login {
+button#login, button#sign-btn {
     height: 40px;
     width: 250px;
     background-color: var(--blue);
@@ -111,7 +135,12 @@ button#login {
     margin-bottom: 10px;
 }
 
-button#login:hover, button.way-btn:hover{
+button#sign-btn{
+    margin-top: 4px;
+    margin-bottom: 7px;
+}
+
+button:hover{
     cursor: pointer;
 }
 
@@ -120,7 +149,16 @@ p.forget {
     margin-bottom: 30px;
 }
 
+p.forget-sign {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
 p.newToReddit {
     font-size: 13px;
     margin-bottom: 50px;
+}
+
+span:hover{
+    cursor: pointer;
 }
