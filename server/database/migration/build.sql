@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users posts likes comments;
+DROP TABLE IF EXISTS users posts likes comments CASCADE;
 
 CREATE TABLE users (
     id INTEGER SERIAL PRIMARY KEY,
