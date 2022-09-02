@@ -69,6 +69,7 @@ input.search-input {
     background-color: #dfdfdf30;
     border: 1px solid #e3dddd;
     border-radius: 3px;
+    margin-top: 10px;
 }
 
 input.search-input:focus, input.search-input:hover  {
@@ -81,7 +82,7 @@ button.btn.search-btn:focus, button.btn.search-btn:hover{
 }
 
 button.log-in {
-    border: 2px solid var(--blue);
+    border: 1px solid var(--blue);
     background-color: white;
     color: var(--blue);
     padding: 1px 30px;
