@@ -4,7 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/login.signUp.style.css">
     <link rel="shortcut icon" href="./assets/reddit-logo.png" type="image/x-icon">
+    <script src="./JS/Login/dom.js" defer></script>
     <title>Ibtisam Reddit</title>
 </head>
 <body>
@@ -22,7 +24,7 @@
             </div>
 
             <div class="buttons">
-                <button class="log-in">
+                <button class="log-in" id="login-btn">
                     Login
                 </button>
                 <button class="sign-up">
@@ -146,6 +148,50 @@
             </div>
         </section>
     </main>
+    
+    <section id="login-modal">
+        <div class="modal-container">
+            <div class="left-img"></div>
+            <div class="login-container">
+                <button id="close-login"> 
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+                <div class="login-title">
+                    <p class="log-title">Log in</p>
+                    <p style="font-size:12px;">By continuing, you agree to our <span style="color:blue"> User Agreement </span> and <span style="color:blue">Privacy Policy </span> .</p>
+                </div>
+
+                <div class="login-ways-btn">
+                    <button class="way-btn">
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                        المواصلة باستخدام Google 
+                    </button>
+                    <button class="way-btn">
+                        <i class="fa fa-apple" aria-hidden="true"></i>
+                        Continue With Apple
+                    </button>
+                    <button class="way-btn">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        Continue With Email
+                    </button>
+                </div>
+
+                <div class="hr-design">
+                    <hr > OR <hr style="margin-left:20px;" >
+                </div>
+                <div class="login-btns">
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="Password" id="password" placeholder="Password">
+                </div>
+                <button class="login" id="login"> Log in </button>
+
+                <div class="login-down">
+                    <p class="forget">Forgot your <span style="color:blue"> username </span> or <span style="color:blue"> password </span> ?</p>
+                    <p class="newToReddit">New to Reddit? <span style="color:blue"> Sign up </span></p>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="https://use.fontawesome.com/cf3935a44e.js"></script>
 </body>
 </html>
