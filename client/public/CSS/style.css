@@ -26,6 +26,9 @@ nav {
     height: 35px;
     gap: 50px;
     background-color: white;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
 }
 
 .logo-name {
@@ -81,7 +84,7 @@ button.log-in {
     border: 2px solid var(--blue);
     background-color: white;
     color: var(--blue);
-    padding: 1px 35px;
+    padding: 1px 30px;
     border-radius: 30px;
     font-size: 18px;
 }
@@ -94,7 +97,7 @@ button.sign-up {
     border: none;
     background-color: var(--blue);
     color: white;
-    padding: 3px 30px;
+    padding: 3px 25px;
     border-radius: 30px;
     font-size: 18px;
     margin-left: 13px;
@@ -124,6 +127,7 @@ section.trending {
 p.trend-section-title {
     color: #665e5e;
     margin: 10px;
+    margin-top: 55px;
 }
 
 .trend-container {
@@ -167,3 +171,136 @@ p.trend-title {
     font-weight: bold;
 }
 /* End Styling Trending Section */
+
+/* Start Styling Top Gaming Section */
+main {
+    display: flex;
+    padding: 10px 12%;
+}
+
+section.posts {
+    width: 70%;
+}
+
+section.top {
+    width: 30%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.top-container {
+    display: flex;
+    height: 110px;
+    align-items: flex-end;
+    background-image: url('https://preview.redd.it/2y2pftyz87981.png?auto=webp&s=8acec587a92c90b11b82551ecbfa8e4eff4d3723');
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+p.top-title {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+p.communities-title {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+p.gaming-title {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.top-list-container {
+    padding: 10px;
+    width: 95%;
+}
+
+ul.top-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+li.top-list-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.top-list-item-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p.top-number {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+i.fa.fa-angle-up.top-icon {
+    font-weight: bold;
+    font-weight: bolder;
+    font-size: 17px;
+    color: #75d575;
+}
+
+img.top-img {
+    height: 40px;
+}
+
+p.top-name {
+    font-size: 14px;
+    font-weight: light;
+}
+
+button.join-btn {
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 15px;
+    padding: 3px 19px;
+}
+
+button.view-all {
+    width: 100%;
+    padding: 4px;
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 16px;
+    margin: 16px 0px;
+    font-size: 16px;
+}
+
+ul.top-list-down {
+    list-style: none;
+    color: var(--blue);
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+li.top-list-down-item {
+    background-color: #8080801a;
+    padding: 7px 9px;
+    border-radius: 17px;
+}
+/* End Styling Top Gaming Section */
