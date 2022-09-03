@@ -1,27 +1,12 @@
-//Sign Up needed Varibale 
+const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+// Sign Up needed Varibale
 const usernameSign = document.getElementById('sign-username');
 const emailSign = document.getElementById('sign-email');
 const passwordSign = document.getElementById('sign-password');
 const confirmPassword = document.getElementById('confirm-password');
 const signUp = document.getElementById('sign-btn');
 
-signUp.addEventListener('click', () => {
-  const userInfo = {
-    username: usernameSign.value,
-    email: emailSign.value,
-    password: passwordSign.value,
-    confirmPassword: confirmPassword.value,
-  };
-  console.log(userInfo);
-  fetch(
-    '/users/signup',
-    Headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    method = 'POST',
-    body = JSON.stringify(userInfo),
-  )
-    .then((response) => {console.log(response); })
-    .catch((error) => { console.log(error); });
-});
+// Login needed variables
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const login = document.getElementById('login');

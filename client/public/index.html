@@ -153,42 +153,44 @@
         <div class="modal-container">
             <div class="left-img"></div>
             <div class="login-container">
-                <button id="close-login"> 
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </button>
-                <div class="login-title">
-                    <p class="log-title">Log in</p>
-                    <p style="font-size:12px;">By continuing, you agree to our <span style="color:blue"> User Agreement </span> and <span style="color:blue">Privacy Policy </span> .</p>
-                </div>
-
-                <div class="login-ways-btn">
-                    <button class="way-btn">
-                        <i class="fa fa-google" aria-hidden="true"></i>
-                        المواصلة باستخدام Google 
+                <form>
+                    <button id="close-login"> 
+                        <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
-                    <button class="way-btn">
-                        <i class="fa fa-apple" aria-hidden="true"></i>
-                        Continue With Apple
-                    </button>
-                    <button class="way-btn">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        Continue With Email
-                    </button>
-                </div>
+                    <div class="login-title">
+                        <p class="log-title">Log in</p>
+                        <p style="font-size:12px;">By continuing, you agree to our <span style="color:blue"> User Agreement </span> and <span style="color:blue">Privacy Policy </span> .</p>
+                    </div>
 
-                <div class="hr-design">
-                    <hr > OR <hr style="margin-left:20px;" >
-                </div>
-                <div class="login-btns">
-                    <input type="text" name="username" id="username" placeholder="Username">
-                    <input type="password" name="Password" id="password" placeholder="Password">
-                </div>
-                <button class="login" id="login"> Log in </button>
+                    <div class="login-ways-btn">
+                        <button class="way-btn">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                            المواصلة باستخدام Google 
+                        </button>
+                        <button class="way-btn">
+                            <i class="fa fa-apple" aria-hidden="true"></i>
+                            Continue With Apple
+                        </button>
+                        <button class="way-btn">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            Continue With Email
+                        </button>
+                    </div>
 
-                <div class="login-down">
-                    <p class="forget">Forgot your <span style="color:blue"> username </span> or <span style="color:blue"> password </span> ?</p>
-                    <p class="newToReddit">New to Reddit? <span style="color:blue" id="sign-from-login"> Sign up </span></p>
-                </div>
+                    <div class="hr-design">
+                        <hr > OR <hr style="margin-left:20px;" >
+                    </div>
+                    <div class="login-btns">
+                        <input type="text" name="email" id="email" placeholder="Email" required>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button class="login" id="login" type="submit"> Log in </button>
+
+                    <div class="login-down">
+                        <p class="forget">Forgot your <span style="color:blue"> username </span> or <span style="color:blue"> password </span> ?</p>
+                        <p class="newToReddit">New to Reddit? <span style="color:blue" id="sign-from-login"> Sign up </span></p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -197,6 +199,7 @@
         <div class="modal-container">
             <div class="left-img"></div>
             <div class="sign-container">
+                <form>
                 <button id="close-sign"> 
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
@@ -224,10 +227,10 @@
                     <hr > OR <hr style="margin-left:20px;" >
                 </div>
                 <div class="login-btns">
-                    <input type="text" placeholder="Username" id="sign-username">
-                    <input type="email" placeholder="Email" id="sign-email">
-                    <input type="password"  placeholder="Password" id="sign-password">
-                    <input type="password"  placeholder="Confirm Your Password" id="confirm-password"> 
+                    <input type="text" placeholder="Username" id="sign-username" required>
+                    <input type="email" placeholder="Email" id="sign-email"required >
+                    <input type="password"  placeholder="Password" id="sign-password"required>
+                    <input type="password"  placeholder="Confirm Your Password" id="confirm-password"required> 
                 </div>
                 <button class="login" id="sign-btn"> Sign up </button>
 
@@ -235,6 +238,7 @@
                     <p class="forget-sign">Forgot your <span style="color:blue"> username </span> or <span style="color:blue"> password </span> ?</p>
                     <p class="newToReddit">You have an account? <span style="color:blue" id="log-from-sign"> Log in </span></p>
                 </div>
+            </form>
             </div>
         </div>
     </section>
