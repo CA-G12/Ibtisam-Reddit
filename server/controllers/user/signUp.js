@@ -9,26 +9,32 @@ const { addUserQuery, getAllUserInfo} = require('../../database/queries/user/ind
 const hashPassword = (password) => bcrypt.hash(password, 10);
 
 const signUp = (req, res, next) => {
-    // const recievedEmail = getAllUserInfo(req.body.email);
-    // console.log(recievedEmail)
-    // if(recievedEmail === req.body.email) {
-    //     console.log('This email is already in use');
-    // } else {}
-    signUpSchema.validateAsync(req.body)
-    .then(data => hashPassword(data.password))
-    .then(hashedPassword => addUserQuery({
-        username: req.body.username,
-        email: req.body.email,
-        password: hashedPassword
-    }))
-    .then(
-        // result => generateToken(res, {username: req.body.usename, id: result.rows[0].id})
-        (result) => {
-            const payload = { username: req.body.usename, id: result.rows[0].id}
-            const token = jwt.sign(payload, process.env.SECRET_KEY, { algorithm: 'HS256'});
-            res.cookie('token', token).redirect('/');
+    getAllUserInfo(req.body.email)
+    .then(({rows}) => {
+        if(rows[0]){
+            res.json({msg: 'This email is already in use'});
+        } else {
+            signUpSchema.validateAsync(req.body)
+            .then(data => hashPassword(data.password))
+            .then(hashedPassword => 
+                console.log(data),
+                addUserQuery({
+                username: req.body.username,
+                email: req.body.email,
+                password: hashedPassword
+            }))
+            .then(
+                // result => generateToken(res, {username: req.body.usename, id: result.rows[0].id})
+                (result) => {
+                    const payload = { username: req.body.usename, id: result.rows[0].id}
+                    const token = jwt.sign(payload, process.env.SECRET_KEY, { algorithm: 'HS256'});
+                    res.cookie('token', token).redirect('/');
+                }
+                )
+            .catch(err => console.log(err));
         }
-        )
+    }
+    )
     .catch(err => console.log(err));
 }
 
