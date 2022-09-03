@@ -2,7 +2,7 @@ const express = require('express');
 const compression = require('compression');
 const path = require('path');
 require('dotenv').config();
-
+const userRouter = require('./routes/user/index');
 const { notFound, serverError } = require('./middleware/index');
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(compression());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
+app.use(userRouter)
 app.use(notFound);
 app.use(serverError);
 
