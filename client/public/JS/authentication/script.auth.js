@@ -23,17 +23,17 @@ signUp.addEventListener('click', (e) => {
 });
 
 function signupFun(userInfo) {
-  console.log(userInfo);
   fetch(
-    '/users/signup',
-    Headers = {
+    '/signup', {
+    headers :{
       'Content-Type': 'application/json',
       'Accept': 'application/json',
     },
-    method = 'POST',
-    body = JSON.stringify(userInfo),
+    method : 'POST',
+    body : JSON.stringify(userInfo),
+  }
   )
-    .then((response) => {console.log(response); })
+    .then(()=> Window.location.href = '../../index')
     .catch((error) => { console.log(error); });
 }
 
