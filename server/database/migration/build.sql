@@ -6,7 +6,8 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    password VARCHAR(100) NOT NULL
+    password VARCHAR(100) NOT NULL,
+    avatar TEXT DEFAULT 'https://cdn-icons-png.flaticon.com/512/1053/1053244.png'
 );
 
 CREATE TABLE posts (
