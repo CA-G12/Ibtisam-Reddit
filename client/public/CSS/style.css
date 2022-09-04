@@ -305,3 +305,82 @@ li.top-list-down-item {
     border-radius: 17px;
 }
 /* End Styling Top Gaming Section */
+
+/* Start Styling Popular Posts */
+
+section.posts {
+    width: 70%;
+    margin-right: 35px;
+}
+
+p.popular-title {
+    margin: 5px 11px 10px;
+    color: #665e5e;
+    font-size: 17px;
+}
+
+.popular-container {
+    background-color: white;
+    border-radius: 5px;
+    padding: 16px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.popular-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+li.popular-item {
+    padding: 5px 9px;
+    background-color: #8080801f;
+    border-radius: 31px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-icons {
+    font-size: 20px;
+    gap: 9px;
+    display: flex;
+    color: #665e5e;
+    padding: 5px 9px;
+
+}
+
+.right-icons:hover{
+    cursor: pointer;
+    background-color: #8080801f;
+    color: #665e5e; 
+    font-weight: bold;
+    border-radius: 31px;
+}
+
+.customize{
+    padding: 5px 9px;
+    border-radius: 31px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #665e5e; 
+    background-color: #fff; 
+    font-weight: bold;
+}
+
+.customize:hover{
+    cursor: pointer;
+    background-color: #8080801f;
+    color: #665e5e; 
+    font-weight: bold;
+    border-radius: 31px;
+}
+
+li:hover{
+    cursor: pointer;
+}
+
+/* End Styling Popular Posts */
