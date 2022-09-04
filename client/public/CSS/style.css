@@ -90,6 +90,21 @@ button.log-in {
     font-size: 18px;
 }
 
+button#log-out {
+    border: 1px solid var(--blue);
+    background-color: white;
+    color: var(--blue);
+    padding: 1px 11px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+img.profile-img {
+    border-radius: 50%;
+    height: 45px;
+    margin-right: 5px;
+}
+
 button.log-in:hover{
     background-color: #f3f3f3c7;
 }

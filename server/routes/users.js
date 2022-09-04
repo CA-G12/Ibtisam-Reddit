@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // const cookieParser = require("cookie-parser");
-const { signUp, login, homePage} = require('../controllers/user/index');
+const { signUp, login, homePage, logout} = require('../controllers/user/index');
 // const { isAuthenticated } = require('../jwt/index');
 
 // router.use(cookieParser());
@@ -9,5 +9,6 @@ const { signUp, login, homePage} = require('../controllers/user/index');
 router.get('/homePage', homePage);
 router.post('/signup', signUp);
 router.post('/log', login);
+router.get('/logOut', logout);
 
 module.exports = router;

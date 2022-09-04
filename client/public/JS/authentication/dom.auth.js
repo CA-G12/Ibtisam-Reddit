@@ -10,3 +10,16 @@ const signUp = document.getElementById('sign-btn');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const login = document.getElementById('login');
+
+//logout needed variables
+const logout = document.getElementById('log-out-btn');
+logout.addEventListener('click', ()=>{
+    fetch('/logOut')
+    .then((response) => {
+        if (response.redirected) {
+          window.location.href = response.url; 
+         } 
+       })
+    .catch((err)=> console.log(err))
+  });
+  
