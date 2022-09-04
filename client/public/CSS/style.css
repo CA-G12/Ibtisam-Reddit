@@ -184,7 +184,7 @@ section.posts {
 }
 
 section.top {
-    width: 30%;
+    width: 35%;
     background-color: white;
     border-radius: 5px;
     margin-top: 39px;
@@ -246,6 +246,7 @@ li.top-list-item {
 
 .top-list-item-container {
     width: 100%;
+    gap: 11px;
     display: flex;
     align-items: center;
     justify-content: space-between;
