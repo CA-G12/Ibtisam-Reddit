@@ -1,8 +1,8 @@
 const connection = require('../../config/connection');
 
-const logInQuery = ({ email }) =>{ 
+const logInQuery = ( email ) =>{ 
     const sql = {
-        'text' : 'select * from users where email = $1 ',
+        'text' : 'select email, password from users where email = $1 ',
         'values': [email]
     }
     return connection.query(sql);

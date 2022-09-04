@@ -43,12 +43,12 @@ login.addEventListener('click', (e) => {
   if (email.value && password.value) {
     if (!regexEmail.test(email.value)){
       alert('Please enter a valid email');
-    }else{
+    } else {
       const userInfo = {
         email: email.value,
         password: password.value,
       };    
-      loginFun(userInfo)
+      loginFun(userInfo);
     }
   } else {
     alert('Please Fill all the information needed to Log in');
@@ -56,16 +56,16 @@ login.addEventListener('click', (e) => {
 });
 
 function loginFun(userInfo) {
-  console.log(userInfo);
   fetch(
-    '/users/login',
-    Headers = {
+    '/log', {
+    headers :{
       'Content-Type': 'application/json',
       'Accept': 'application/json',
     },
-    method = 'POST',
-    body = JSON.stringify(userInfo),
+    method : 'POST',
+    body : JSON.stringify(userInfo),
+  }
   )
-    .then((response) => {console.log(response); })
-    .catch((error) => { console.log(error); });
+  .then(()=> Window.location.href = '../../index')
+  .catch((error) => { console.log(error); });
 }
