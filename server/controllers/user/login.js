@@ -1,11 +1,10 @@
-// validate data for
-// email to see if it's valid
-// if its existed compare the passwords
-// if true redirect and generate token 
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 const { logInQuery, getAllUserInfo } = require('../../database/queries/user/index');
 const { loginSchema } = require('../validation/index');
-const jwt = require('jsonwebtoken')
+
 const login = (req, res, next) => {
     loginSchema.validateAsync(req.body)
     .then(()=>{
