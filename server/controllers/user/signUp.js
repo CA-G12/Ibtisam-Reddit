@@ -30,7 +30,7 @@ const signUp = (req, res, next) => {
                 (result) => {
                     const payload = { username: req.body.usename, id: result.rows[0].id}
                     const token = jwt.sign(payload, process.env.SECRET_KEY, { algorithm: 'HS256'});
-                    res.cookie('token', token).redirect('/');
+                    res.status(201).cookie('token', token).redirect('/homePage')
                 }
                 )
             .catch(err => console.log(err));

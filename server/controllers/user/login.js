@@ -23,7 +23,7 @@ const login = (req, res, next) => {
                                 // {rows} => generateToken(res, {username: rows[0].username, id: rows[0].id})
                                 const payload = { username: rows[0].username, id: rows[0].id}
                                 const token = jwt.sign(payload, process.env.SECRET_KEY, { algorithm: 'HS256'});
-                                res.cookie('token', token).redirect('/');
+                                res.status(201).cookie('token', token).redirect('/homePage');
                             })
                     }
                 })
