@@ -7,7 +7,8 @@ CREATE TABLE users (
     username VARCHAR(30) NOT NULL,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    avatar TEXT DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXRqoZG_6ccmI8VKwHyBiJj0ki7zVtzJP1qA&usqp=CAU
+    avatar TEXT DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXRqoZG_6ccmI8VKwHyBiJj0ki7zVtzJP1qA&usqp=CAU'
+);
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
