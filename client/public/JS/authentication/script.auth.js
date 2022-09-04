@@ -33,8 +33,12 @@ function signupFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-    .then(()=> Window.location.href = '../../index')
-    .catch((error) => { console.log(error); });
+  .then((response) => {
+    if (response.redirected) {
+      window.location.href = response.url; 
+     } 
+   })
+  .catch((error) => { console.log(error); });
 }
 
 // Login operation
@@ -66,6 +70,11 @@ function loginFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-  .then(()=> Window.location.href = '../../index')
+  // .then((data)=> data.json())
+  .then((response) => {
+     if (response.redirected) {
+       window.location.href = response.url; 
+      } 
+    })
   .catch((error) => { console.log(error); });
 }
