@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const isAuthenticated = (req, res, next) => {
     const recievedToken = req.cookies.token;
-    // console.log(process.env.SECRET_KEY);
     if(!recievedToken){
         res.status(200).json({msg: 'Access denied'});
     } else {

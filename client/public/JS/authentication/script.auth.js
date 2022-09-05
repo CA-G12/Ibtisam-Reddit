@@ -70,7 +70,6 @@ function loginFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-  // .then((data)=> data.json())
   .then((response) => {
      if (response.redirected) {
        window.location.href = response.url; 
