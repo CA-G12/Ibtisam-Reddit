@@ -3,14 +3,12 @@ fetch('/post')
 .then((response) => renderAllPosts(response))
 .catch((err)=> console.log(err));
 
-
 const postsContainer = document.getElementById('posts');
 
 function renderAllPosts(response) {
     postsContainer.innerText = '';
     
     response.forEach((post) => {
-        console.log(post)
         postsContainer.innerHTML += `
             <div class="post">
                 <div class="votes-section">
@@ -37,7 +35,7 @@ function renderAllPosts(response) {
                                 <i class="fa fa-cloud" aria-hidden="true"></i>
                             </li>
                         </ul>
-                        <button class="join-btn">join</button>
+                        <button class="join-btn" style= "background-color:#80808075;">joined</button>
                     </div>
 
                     <div class="user-content">
@@ -67,3 +65,9 @@ function renderAllPosts(response) {
         `
     });
 }
+
+
+fetch('/homePost')
+.then((data) => data.json())
+.then((response) => renderAllPosts(response))
+.catch((err)=> console.log(err));
