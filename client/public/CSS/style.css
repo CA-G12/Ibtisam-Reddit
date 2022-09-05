@@ -546,6 +546,41 @@ ul.post-icons-list {
 
 /* End Styling Post Container */
 
+/* Start Styling Footer */
+.footer-section {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+ul.footer-list-first {
+    font-size: 14px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 12px;
+}
+
+li.first-lis {
+    gap: 21px;
+}
+
+ul.footer-second-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+}
+/* End Styling Footer */
+
 /* Start Styling Create post */
 .create-post {
     background-color: white;
@@ -564,9 +599,8 @@ img.create-img {
 }
 
 input.post-text {
-    width: 466px;
+    width: 437px;
     height: 47px;
-    margin-right: 20px;
     padding-left: 20px;
 }
 
@@ -576,7 +610,7 @@ input.post-text:focus{
 }
 
 i.create-icon {
-    font-size: 30px !important;
+    font-size: 22px !important;
     color: #808080b4;
 }
 /* End Styling Create post */
