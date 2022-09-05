@@ -35,7 +35,7 @@ function renderAllPosts(response) {
                                 <i class="fa fa-cloud" aria-hidden="true"></i>
                             </li>
                         </ul>
-                        <button class="join-btn" style= "background-color:#80808075;">joined</button>
+                        <button class="join-btn">joined</button>
                     </div>
 
                     <div class="user-content">
