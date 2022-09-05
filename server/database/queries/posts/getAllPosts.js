@@ -9,7 +9,8 @@ const getAllPostQuery = () => {
                         posts.post_date, 
                         posts.likes
                 from users left join posts 
-                on users.id = posts.user_id `;
+                on users.id = posts.user_id 
+                order by posts.post_date DESC`;
 
     return connection.query(sql);
 }

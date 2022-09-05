@@ -5,16 +5,16 @@ const addPost = document.getElementById('add-post');
 
 addPost.addEventListener('click', () => {
     if(newPost.value){
-        fetch('/addPost',{
-            headers :{
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            method : 'POST',
-            body : JSON.stringify(newPost.value)
-          })
-        .then((response) => response.json())
-        .then((response) => console.log(response))
+        fetch(`/addPost/:${newPost.value}`
+        // ,{
+        //     method: "post",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(newPost.value),
+        //   }
+          )
+        .then((response) => window.location.href = '/homePage')
         .catch((err)=> console.log(err))
     } else {
         alert('Empty Posts are not allowed');
