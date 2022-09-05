@@ -21,7 +21,7 @@ function renderAllPosts(response) {
 
                 <div class="post-content">
                     <div class="user-info">
-                        <img src="./assets/reddit-logo.png" alt="" class="user-avatar">
+                        <img src=${post.avatar} alt="" class="user-avatar">
                         <p class="user-name">${post.username}</p>
                         <ul class="li-user-icons">
                             <li class="user-icon">
