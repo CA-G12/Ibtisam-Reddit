@@ -1,13 +1,11 @@
 const router = require('express').Router();
 const cookieParser = require("cookie-parser");
 
-const { getPosts } = require('../controllers/posts/index');
-// const isAuthenticated = require('../jwt/index');
+const { getPosts, addPost } = require('../controllers/posts/index');
 
 router.use(cookieParser());
-
 router.get('/post', getPosts);
-router.get('homePost', getPosts);
-// router.post('/post/addpost', isAuthenticated, addPost);
+router.get('/homePost', getPosts);
+router.post('/addPost', addPost);
 
 module.exports = router;
