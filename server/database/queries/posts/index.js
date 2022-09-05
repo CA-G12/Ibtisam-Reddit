@@ -1,5 +1,7 @@
-const getPostsQuery = require('./getPosts');
+const getAllPostQuery = require('./getAllPosts');
+// const getAllPostQuery = require('./getPostsQuery');
 
 module.exports = {
-    getPostsQuery
+    getAllPostQuery
+    // getAllPostQuery
 }

@@ -449,3 +449,99 @@ ul.show-list {
     display: block;
 } */
 /* End Styling Details Container */
+
+/* Start Styling Post Container */
+.posts-container {
+    margin-top: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    display: flex;
+    background-color: white;
+    margin-bottom: 30px;
+    border: 1px solid #8080806e;
+}
+
+.votes-section {
+    background-color: #8080801f;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 25px;
+}
+
+i.fa.vote-icon {
+    font-size: 20px;
+    color: #6260608c;
+    padding: 3px;
+}
+
+.vote-icon:hover{
+    border: 1px solid #80808078;
+}
+
+p.votes {
+    font-weight: lighter;
+    margin: 20px;
+}
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+img.user-avatar {
+    height: 35px;
+    border-radius: 50%;
+}
+
+p.user-name {
+    color: #808080ba;
+    margin: 0px 20px 0px 13px;
+}
+
+ul.li-user-icons {
+    list-style: none;
+    display: flex;
+    gap: 19px;
+    margin-left: 145px;
+    color: #808080;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.user-content {
+    padding: 0px 15px;
+    font-weight: bold;
+}
+
+.post-icons {
+    padding: 10px 0px 12px 14px;
+}
+
+ul.post-icons-list {
+    display: flex;
+    list-style: none;
+    gap: 26px;
+    align-items: center;
+    padding: 0px 10px 0px 0px;
+    color: #808080;
+}
+
+
+/* End Styling Post Container */
