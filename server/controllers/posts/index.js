@@ -3,5 +3,5 @@ const addPost = require('./addPost');
 
 module.exports = {
     getPosts,
-    addPost
+    addPost,
 };
