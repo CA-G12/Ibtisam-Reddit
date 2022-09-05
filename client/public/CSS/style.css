@@ -545,3 +545,38 @@ ul.post-icons-list {
 
 
 /* End Styling Post Container */
+
+/* Start Styling Create post */
+.create-post {
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #80808075;
+    justify-content: flex-end;
+}
+
+img.create-img {
+    height: 50px;
+}
+
+input.post-text {
+    width: 466px;
+    height: 47px;
+    margin-right: 20px;
+    padding-left: 20px;
+}
+
+input.post-text:focus{
+    outline: 1px solid var(--blue);
+    border: none;
+}
+
+i.create-icon {
+    font-size: 30px !important;
+    color: #808080b4;
+}
+/* End Styling Create post */
