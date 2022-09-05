@@ -507,6 +507,7 @@ p.votes {
 
 img.user-avatar {
     height: 35px;
+    border-radius: 50%;
 }
 
 p.user-name {
