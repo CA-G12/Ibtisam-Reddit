@@ -580,3 +580,38 @@ i.create-icon {
     color: #808080b4;
 }
 /* End Styling Create post */
+
+/* Start Styling Footer */
+.footer-section {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+ul.footer-list-first {
+    font-size: 14px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 12px;
+}
+
+li.first-lis {
+    gap: 21px;
+}
+
+ul.footer-second-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+}
+/* End Styling Footer */
