@@ -28,7 +28,7 @@ const signUp = (req, res, next) => {
                 // TODO:res is not defined in generate token function.
                 // result => generateToken(res, {username: req.body.usename, id: result.rows[0].id})
                 (result) => {
-                    const payload = { username: req.body.usename, id: result.rows[0].id}
+                    const payload = { username: req.body.username, id: result.rows[0].id}
                     const token = jwt.sign(payload, process.env.SECRET_KEY, { algorithm: 'HS256'});
                     res.status(201).cookie('token', token).redirect('/homePage')
                 }

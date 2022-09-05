@@ -1,12 +1,12 @@
 const connection = require('../../config/connection');
 
-const addPostQuery = (content, id) => {
+const addPostQuery = (content,title, user_id) => {
     const sql = {
-        'Text': 'Insert into posts (content, user_id) values ($1, $2) returning *',
-        'Values': [content, id]
+        text: 'insert into posts (content, title, user_id) values ($1, $2, $3)',
+        values: [content,title, user_id],
     }
 
-    return connection.query(sql);
+    connection.query(sql);
 }
 
 module.exports = addPostQuery;
