@@ -461,7 +461,6 @@ ul.show-list {
 .post {
     display: flex;
     background-color: white;
-    margin-bottom: 30px;
     border: 1px solid #8080806e;
 }
 
@@ -543,6 +542,27 @@ ul.post-icons-list {
     color: #808080;
 }
 
+.comment {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-left: 15px;
+    border: 1px solid #8080806e;
+}
+
+img.comment-logo {
+    height: 35px;
+    margin-right: 35px;
+}
+
+p.comment-content {
+    font-size: 14px;
+}
+
+.post-comments {
+    margin-bottom: 40px;
+}
 
 /* End Styling Post Container */
 
