@@ -24,4 +24,15 @@ INSERT INTO posts (id, title, content, likes, user_id) values (
     '3000', 'This is title of my post', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil dicta nulla omnis. Non asperiores a tenetur sequi sed aliquid quisquam. Numquam ea quam aperiam beatae.', '5', '700'
 );
 
+INSERT INTO comments (id, content, post_id, user_id) values(
+    '2000', 'This is great', '1000', '1000'
+);
+
+INSERT INTO comments (id, content, post_id, user_id) values(
+    '2001', 'This is great Post', '1000', '600'
+);
+INSERT INTO comments (id, content, post_id, user_id) values(
+    '2200', 'Working Fine', '2000', '1000'
+);
+
 COMMIT;
