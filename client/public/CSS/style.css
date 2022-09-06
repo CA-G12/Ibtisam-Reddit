@@ -648,4 +648,11 @@ ul.footer-second-list {
     gap: 20px;
     font-size: 14px;
 }
+
+.delete-btn{
+    color: #808080;
+    font-size: 21px;
+    border: none;
+    background-color: white;
+}
 /* End Styling Footer */

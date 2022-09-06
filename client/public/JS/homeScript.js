@@ -1,13 +1,20 @@
-fetch('/post')
+// For Adding New Post
+const newPost = document.getElementById('new-post');
+const addPost = document.getElementById('add-post');
+
+
+fetch('/homePost')
 .then((data) => data.json())
-.then((response) => renderAllPosts(response))
+.then((response) => createPost(response))
 .catch((err)=> console.log(err));
+
 
 const postsContainer = document.getElementById('posts');
 
-function renderAllPosts(response) {
-    if(response.length > 0) {
+function createPost(response) {
+    if (response.length > 0) {
     postsContainer.innerText = '';
+    
     response.forEach((post) => {
         postsContainer.innerHTML += `
             <div class="post">
@@ -31,8 +38,10 @@ function renderAllPosts(response) {
                             <li class="user-icon">
                                 <i class="fa fa-snowflake-o" aria-hidden="true"></i>
                             </li>
-                            <li class="user-icon">
-                                <i class="fa fa-cloud" aria-hidden="true"></i>
+                            <li class="user-icon" >
+                            <button class="delete-btn" onClick="deletePost(${post.id})">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
                             </li>
                         </ul>
                         <button class="join-btn">joined</button>
@@ -67,4 +76,27 @@ function renderAllPosts(response) {
 }
 }
 
+function deletePost(id) {
+    fetch(`/delete/${id}`)
+    .then(() => { window.location.href = '/homePage' })
+    .catch(err => console.log(err))
+}
 
+addPost.addEventListener('click', () => {
+    if(newPost.value){
+        fetch(`/addPost/${newPost.value}`)
+        .then(() => window.location.href = '/homePage')
+        .catch((err)=> console.log(err))
+    } else {
+        alert('Empty Posts are not allowed');
+    }
+    newPost.value = '';
+    //create new post with edit and delete button with dom 
+    // id clicked it sends to the back the user id with book id and if it matches these it can be deleted.
+    // fetch('/homePost')
+    // .then((data) => data.json())
+    // .then((response) => renderAllPosts(response))
+    // .catch((err)=> console.log(err)); 
+    // or res.redirect('/homePage')
+    // .then(() => { window.location.reload(); });
+});
