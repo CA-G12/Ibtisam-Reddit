@@ -11,7 +11,7 @@ const isAuthenticated = (req, res, next) => {
             res.status(400).json({msg: 'Token invalid'});
             } else {
             res.cookie('username', decoded.username);
-            res.cookie('userId:', decoded.id);
+            res.cookie('userId', decoded.id);
             next();
             }
         });

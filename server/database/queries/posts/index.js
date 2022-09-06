@@ -1,9 +1,9 @@
 const getAllPostQuery = require('./getAllPosts');
-// const getAllPostQuery = require('./getPostsQuery');
 const addPostQuery = require('./addPostQuery');
+const deletePostQuery = require('./deletePostQuery');
 
 module.exports = {
     getAllPostQuery,
-    addPostQuery
-    // getAllPostQuery
+    addPostQuery,
+    deletePostQuery,
 }

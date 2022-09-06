@@ -6,7 +6,7 @@ const addPostQuery = (content,title, user_id) => {
         values: [content,title, user_id],
     }
 
-    connection.query(sql);
+    return connection.query(sql);
 }
 
 module.exports = addPostQuery;
