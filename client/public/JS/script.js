@@ -6,7 +6,6 @@ fetch('/post')
 const postsContainer = document.getElementById('posts');
 
 function renderAllPosts(response) {
-    console.log(response);
     postsContainer.innerText = '';
     response.forEach((post) => {
         postsContainer.innerHTML += 
@@ -64,26 +63,6 @@ function renderAllPosts(response) {
                             </div>
                         </div>
 
-                    </div>
-                    <div class="comments">
-                        <div class="comment">
-                            <img src=${post.avatar} alt="" class="comment-logo">
-                            <p class="comment-content">
-                            ${post.comment}
-                            </p>
-                        </div>
-                        <div class="comment">
-                            <img src=${post.avatar} alt="" class="comment-logo">
-                            <p class="comment-content">
-                                ${post.comment}
-                            </p>
-                        </div>
-                        <div class="comment">
-                            <img src=${post.avatar} alt="" class="comment-logo">
-                            <p class="comment-content">
-                                ${post.comment}
-                            </p>
-                        </div>
                     </div>
                 </div>
         `
