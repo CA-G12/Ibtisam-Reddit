@@ -5,7 +5,6 @@ const addPost = document.getElementById('add-post');
 
 fetch('/homePost')
 .then((data) => data.json())
-// .then((data)=> console.log(data))
 .then((response) => createPost(response))
 .catch((err)=> console.log(err));
 
