@@ -1,7 +1,7 @@
 const connection = require('../../config/connection');
 
 const getAllPostQuery = () => {
-    const sql = `SELECT  users.username,
+    const sql = `SELECT users.username,
                         users.avatar,
                         posts.id,
                         posts.title,
