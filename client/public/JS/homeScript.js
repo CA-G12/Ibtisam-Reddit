@@ -40,8 +40,10 @@ function createPost(response) {
                                     <li class="user-icon">
                                         <i class="fa fa-snowflake-o" aria-hidden="true"></i>
                                     </li>
-                                    <li class="user-icon">
-                                        <i class="fa fa-cloud" aria-hidden="true"></i>
+                                    <li class="user-icon" >
+                                        <button class="delete-btn" onClick="deletePost(${post.id})">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
                                     </li>
                                 </ul>
                                 <button class="join-btn">joined</button>
