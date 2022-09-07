@@ -5,6 +5,7 @@ require('dotenv').config();
 const customizedServerError = require('../../middleware/customizedServerError');
 const { logInQuery, getAllUserInfo } = require('../../database/queries/user/index');
 const { loginSchema } = require('../validation/index');
+const { generateToken } = require('../../jwt/index');
 
 const login = (req, res, next) => {
     loginSchema.validateAsync(req.body)
@@ -20,12 +21,9 @@ const login = (req, res, next) => {
                         throw new customizedServerError(400,'Wrong Password, Try again.')
                     } else {
                         getAllUserInfo(req.body.email)
-                        .then(({rows}) => {
-                                // {rows} => generateToken(res, {username: rows[0].username, id: rows[0].id})
-                                const payload = { username: rows[0].username, id: rows[0].id}
-                                const token = jwt.sign(payload, process.env.SECRET_KEY, { algorithm: 'HS256'});
-                                res.status(201).cookie('token', token).redirect('/homePage');
-                            })
+                        .then(
+                                ({rows}) => generateToken(res, {username: rows[0].username, id: rows[0].id})
+                            )
                     }
                 })
                 .catch((err) => {
