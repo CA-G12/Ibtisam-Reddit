@@ -66,14 +66,6 @@ function renderAllPosts(response) {
                         </div>
 
                     </div>
-                    <div class="comments">
-                        <div class="comment">
-                            <img src=${post.avatar} alt="" class="comment-logo">
-                            <p class="comment-content">
-                            ${post.comment}
-                            </p>
-                        </div>
-                    </div>
                 </div>
         `
     });

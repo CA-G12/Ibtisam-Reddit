@@ -24,7 +24,6 @@ nav {
     padding: 10px;
     align-items: center;
     height: 35px;
-    gap: 50px;
     background-color: white;
     position: fixed;
     z-index: 1000;
@@ -38,8 +37,8 @@ a{
 .logo-name {
     display: flex;
     align-items: center;
-    margin-left: 25px;
-    margin-right: 40px;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 img.logo {
@@ -55,6 +54,20 @@ h2.site-name {
 .search-container {
     display: flex;
     align-items: center;
+    margin-bottom: 9px;
+    margin-right: 146px;
+}
+
+#special{
+    margin-top: 9px;
+}
+
+#special2{
+    margin-top: 0px;
+}
+
+p#username {
+    margin-right: 20px;
 }
 
 button.btn.search-btn {
@@ -64,6 +77,7 @@ button.btn.search-btn {
     border: none;
     margin-left: 16px;
     background-color: #dfdfdf12;
+    margin-top: 8px;
 }
 
 input.search-input {
@@ -94,13 +108,10 @@ button.log-in {
     font-size: 18px;
 }
 
-button#log-out {
-    border: 1px solid var(--blue);
-    background-color: white;
+button#log-out-btn {
     color: var(--blue);
-    padding: 1px 11px;
-    border-radius: 30px;
-    font-size: 18px;
+    border: none;
+    font-size: 36px;
 }
 
 img.profile-img {
