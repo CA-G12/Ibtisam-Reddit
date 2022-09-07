@@ -3,11 +3,11 @@ signUp.addEventListener('click', (e) => {
   e.preventDefault();
   if (usernameSign.value && emailSign.value && passwordSign.value && confirmPassword.value) {
     if (usernameSign.value.length === 1) {
-      alert('Please enter a valid username');
+      swal('Please enter a valid username');
     } else if (passwordSign.value !== confirmPassword.value){
-      alert('The passwords must be matching');
+      swal('The passwords must be matching');
     } else if (!regexEmail.test(emailSign.value)){
-      alert('Please enter a valid email');
+      swal('Please enter a valid email');
     }else{
       const userInfo = {
         username: usernameSign.value,
@@ -18,7 +18,7 @@ signUp.addEventListener('click', (e) => {
       signupFun(userInfo)
     }
   } else {
-    alert('Please Fill all the information needed to Sign Up');
+    swal('Please Fill all the information needed to Sign Up');
   }
 });
 
@@ -33,12 +33,28 @@ function signupFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-  .then((response) => {
-    if (response.redirected) {
-      window.location.href = response.url; 
-     } 
-   })
-  .catch((error) => { console.log(error); });
+  .then((res) => res.json())
+  .then((res) => {
+    if(res.error){
+      swal({
+        title: 'Sign Up Error',
+        text: res.error,
+        icon: 'warning',
+        button: 'OK',
+      })
+    } 
+    else{
+      window.location.assign('/homePage'); 
+    }
+  })
+  .catch((error) => { 
+    swal({
+    title: 'Error!',
+    text: error,
+    icon: 'error',
+    button: 'OK',
+  })
+});
 }
 
 // Login operation
@@ -46,7 +62,7 @@ login.addEventListener('click', (e) => {
   e.preventDefault();
   if (email.value && password.value) {
     if (!regexEmail.test(email.value)){
-      alert('Please enter a valid email');
+      swal('Please enter a valid email');
     } else {
       const userInfo = {
         email: email.value,
@@ -55,7 +71,7 @@ login.addEventListener('click', (e) => {
       loginFun(userInfo);
     }
   } else {
-    alert('Please Fill all the information needed to Log in');
+    swal('Please Fill all the information needed to Log in');
   }
 });
 
@@ -70,10 +86,26 @@ function loginFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-  .then((response) => {
-     if (response.redirected) {
-       window.location.href = response.url; 
-      } 
-    })
-  .catch((error) => { console.log(error); });
+  .then((res) => res.json())
+  .then((res) => {
+    if(res.error){
+      swal({
+        title: '',
+        text: res.error,
+        icon: 'warning',
+        button: 'OK',
+      })
+    } 
+    else{
+      window.location.assign('/homePage'); 
+    }
+  })
+  .catch((error) => { 
+    swal({
+    title: 'Error!',
+    text: error,
+    icon: 'error',
+    button: 'OK',
+  })
+});
 }
