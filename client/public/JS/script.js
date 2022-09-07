@@ -1,3 +1,4 @@
+
 fetch('/post')
 .then((data) => data.json())
 .then((response) => renderAllPosts(response))
@@ -7,6 +8,7 @@ const postsContainer = document.getElementById('posts');
 
 function renderAllPosts(response) {
     postsContainer.innerText = '';
+
     response.forEach((post) => {
         postsContainer.innerHTML += 
         `

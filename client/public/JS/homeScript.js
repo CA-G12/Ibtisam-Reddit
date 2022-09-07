@@ -1,7 +1,18 @@
+//logout needed variables
+const logout = document.getElementById('log-out-btn');
+logout.addEventListener('click', ()=>{
+    fetch('/logOut')
+    .then((response) => {
+        if (response.redirected) {
+          window.location.href = response.url; 
+         } 
+       })
+    .catch((err)=> console.log(err))
+});
+
 // For Adding New Post
 const newPost = document.getElementById('new-post');
 const addPost = document.getElementById('add-post');
-
 
 fetch('/homePost')
 .then((data) => data.json())
