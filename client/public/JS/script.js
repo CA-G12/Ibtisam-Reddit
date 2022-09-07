@@ -10,6 +10,7 @@ function renderAllPosts(response) {
     postsContainer.innerText = '';
 
     response.forEach((post) => {
+        if(post.content){
         postsContainer.innerHTML += 
         `
         <div class="post-comments">
@@ -22,23 +23,32 @@ function renderAllPosts(response) {
 
                         <div class="post-content">
                             <div class="user-info">
-                                <img src=${post.avatar} alt="" class="user-avatar">
-                                <p class="user-name">${post.username}</p>
-                                <ul class="li-user-icons">
-                                    <li class="user-icon">
-                                        <i class="fa fa-address-book" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="user-icon">
-                                        <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="user-icon">
-                                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                                    </li>
-                                    <li class="user-icon">
-                                        <i class="fa fa-cloud" aria-hidden="true"></i>
-                                    </li>
-                                </ul>
-                                <button class="join-btn">joined</button>
+                                <div class="user-left">
+                                    <img src='./assets/reddit-logo.png' alt="" class="user-avatar">
+                                    <div class="user-date">
+                                        <p class="user-name">${post.username}</p>
+                                        <p class="date">${post.post_date}</p>
+                                    </div>
+                                </div>
+                                <div class="user-right">
+                                        <ul class="li-user-icons">
+                                            <li class="user-icon">
+                                            <i class="fa fa-address-book" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="user-icon">
+                                            <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="user-icon">
+                                            <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li class="user-icon" >
+                                            <button class="delete-btn" onClick="deletePost(${post.id})">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <button class="join-btn">joined</button>
+                                </div>
                             </div>
 
                             <div class="user-content">
@@ -51,7 +61,7 @@ function renderAllPosts(response) {
                                 <ul class="post-icons-list">
                                     <li class="post-icons-item">
                                         <i class="fa fa-comment" aria-hidden="true"></i>
-                                        2 comment
+                                        comment
                                     </li>
                                     <li class="post-icons-item">
                                         <i class="fa fa-share" aria-hidden="true"></i>
@@ -68,5 +78,6 @@ function renderAllPosts(response) {
                     </div>
                 </div>
         `
+        }
     });
 }

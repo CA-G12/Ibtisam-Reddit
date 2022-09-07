@@ -3,11 +3,11 @@ signUp.addEventListener('click', (e) => {
   e.preventDefault();
   if (usernameSign.value && emailSign.value && passwordSign.value && confirmPassword.value) {
     if (usernameSign.value.length === 1) {
-      swal('Please enter a valid username');
+     swal('Please enter a valid username');
     } else if (passwordSign.value !== confirmPassword.value){
-      swal('The passwords must be matching');
+     swal('The passwords must be matching');
     } else if (!regexEmail.test(emailSign.value)){
-      swal('Please enter a valid email');
+     swal('Please enter a valid email');
     }else{
       const userInfo = {
         username: usernameSign.value,
@@ -18,7 +18,7 @@ signUp.addEventListener('click', (e) => {
       signupFun(userInfo)
     }
   } else {
-    swal('Please Fill all the information needed to Sign Up');
+   swal('Please Fill all the information needed to Sign Up');
   }
 });
 
@@ -33,22 +33,21 @@ function signupFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-  .then((res) => res.json())
   .then((res) => {
     if(res.error){
-      swal({
-        title: 'Sign Up Error',
+     swal({
+        title: '',
         text: res.error,
         icon: 'warning',
         button: 'OK',
       })
     } 
-    else{
-      window.location.assign('/homePage'); 
-    }
+    else if(res.redirected) {
+      window.location.href = res.url;
+  }
   })
   .catch((error) => { 
-    swal({
+   swal({
     title: 'Error!',
     text: error,
     icon: 'error',
@@ -62,7 +61,7 @@ login.addEventListener('click', (e) => {
   e.preventDefault();
   if (email.value && password.value) {
     if (!regexEmail.test(email.value)){
-      swal('Please enter a valid email');
+     swal('Please enter a valid email');
     } else {
       const userInfo = {
         email: email.value,
@@ -71,7 +70,7 @@ login.addEventListener('click', (e) => {
       loginFun(userInfo);
     }
   } else {
-    swal('Please Fill all the information needed to Log in');
+   swal('Please Fill all the information needed to Log in');
   }
 });
 
@@ -86,22 +85,20 @@ function loginFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
-  .then((res) => res.json())
   .then((res) => {
     if(res.error){
       swal({
-        title: '',
-        text: res.error,
-        icon: 'warning',
+        title: 'res.error',
+        text: '',
+        icon: 'error',
         button: 'OK',
-      })
-    } 
-    else{
-      window.location.assign('/homePage'); 
-    }
+      });
+    } else if(res.redirected) {
+      window.location.href = res.url;
+  }     
   })
   .catch((error) => { 
-    swal({
+   swal({
     title: 'Error!',
     text: error,
     icon: 'error',
