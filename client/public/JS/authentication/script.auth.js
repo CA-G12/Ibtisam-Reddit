@@ -37,15 +37,15 @@ function signupFun(userInfo) {
   .then((res) => {
     if(res.error){
       swal({
-        title: res.error,
-        text: '',
-        icon: 'error',
+        title: 'Sign Up Error',
+        text: res.error,
+        icon: 'warning',
         button: 'OK',
-      });
+      })
+    } 
+    else{
+      window.location.assign('/homePage'); 
     }
-     else{
-      window.location.assign('/homePage');
-  }     
   })
   .catch((error) => { 
    swal({
@@ -90,15 +90,15 @@ function loginFun(userInfo) {
   .then((res) => {
     if(res.error){
       swal({
-        title: res.error,
-        text: '',
-        icon: 'error',
+        title: 'Login Error',
+        text: res.error,
+        icon: 'warning',
         button: 'OK',
-      });
+      })
+    } 
+    else{
+      window.location.assign('/homePage'); 
     }
-     else{
-      window.location.assign('/homePage');
-  }     
   })
   .catch((error) => { 
    swal({
