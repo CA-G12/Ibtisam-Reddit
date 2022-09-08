@@ -2,8 +2,14 @@
 fetch('/post')
 .then((data) => data.json())
 .then((response) => renderAllPosts(response))
-.catch((err)=> console.log(err));
-
+.catch((error) => { 
+    swal({
+     title: 'Error!',
+     text: error,
+     icon: 'error',
+     button: 'OK',
+   })
+ });
 const postsContainer = document.getElementById('posts');
 
 function renderAllPosts(response) {

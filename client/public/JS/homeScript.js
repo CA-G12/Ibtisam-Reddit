@@ -7,7 +7,14 @@ logout.addEventListener('click', ()=>{
           window.location.href = response.url; 
          } 
        })
-    .catch((err)=> console.log(err))
+    .catch((error) => { 
+    swal({
+        title: 'Error!',
+        text: error,
+        icon: 'error',
+        button: 'OK',
+    })
+    });
 });
 
 // For Adding New Post
@@ -17,7 +24,14 @@ const addPost = document.getElementById('add-post');
 fetch('/homePost')
 .then((data) => data.json())
 .then((response) => createPost(response))
-.catch((err)=> console.log(err));
+.catch((error) => { 
+    swal({
+     title: 'Error!',
+     text: error,
+     icon: 'error',
+     button: 'OK',
+   })
+});
 
 
 const postsContainer = document.getElementById('posts');
@@ -47,15 +61,13 @@ function createPost(response) {
                                     </div>
                                 </div>
                                 <div class="user-right">
-                                        <ul class="li-user-icons">
-                                            <li class="user-icon">
-                                            <i class="fa fa-address-book" aria-hidden="true"></i>
-                                        </li>
+                                    <ul class="li-user-icons">
                                         <li class="user-icon">
-                                            <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                        </li>
+                                            <i class="fa-solid fa-star"></i>                                        </li>
                                         <li class="user-icon">
-                                            <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                                            <button class=" delete-btn edit-btn" onClick="editPost(${post.id})">
+                                                <i class="fa-solid fa-pencil"></i>
+                                            </button>
                                         </li>
                                         <li class="user-icon" >
                                             <button class="delete-btn" onClick="deletePost(${post.id})">
@@ -98,20 +110,100 @@ function createPost(response) {
     });
 }
 
-
-function deletePost(id) {
-    fetch(`/delete/${id}`)
-    .then(() => { window.location.href = '/homePage' })
-    .catch(err => console.log(err))
-}
-
 addPost.addEventListener('click', () => {
     if(newPost.value){
         fetch(`/addPost/${newPost.value}`)
-        .then(() => window.location.href = '/homePage')
-        .catch((err)=> console.log(err))
-    } else {
-        alert('Empty Posts are not allowed');
+        .then((res) => res.json())
+        .then((data) =>{ 
+            if(data.message){ 
+                swal({
+                    title: data.message,
+                    icon: 'success',
+                    button: 'OK',
+                })
+                setTimeout(()=>{ window.location.href = '/homePage'}, 2000);
+            }
+        })
+        .catch((error) => { 
+            swal({
+             title: 'Error!',
+             text: error,
+             icon: 'error',
+             button: 'OK',
+           })
+        });
+        } else {
+        swal('Empty Posts are not allowed');
     }
     newPost.value = '';
 });
+
+function deletePost(id) {
+    fetch(`/delete/${id}`)
+    .then((res) => res.json())
+    .then((data) =>{ 
+        if(data.message){ 
+            swal({
+                title: data.message,
+                icon: 'success',
+                button: 'OK',
+            })
+                setTimeout(()=>{ window.location.href = '/homePage'}, 2000);
+            }
+        })
+        .catch((error) => { 
+            swal({
+            title: 'Error!',
+            text: error,
+            icon: 'error',
+            button: 'OK',
+        })
+    });
+}
+
+// function editPost(id) {
+//     const userInfo = {
+//         post_id: id
+//     }
+//     fetch(
+//         '/edit', {
+//         headers :{
+//           'Content-Type': 'application/json',
+//           'Accept': 'application/json',
+//         },
+//         method : 'POST',
+//         body : JSON.stringify(userInfo),
+//       }
+//       )
+//     .then((res) => res.json())
+//     .then((data) => {
+//         addPost.textContent = 'edit';
+//         newPost.value = data[0].content;
+//         const post = {
+//             post_id: id,
+//             content: newPost.value
+//         }
+//         addPost.addEventListener('click', () =>{
+//             fetch(
+//                 '/edit/post', {
+//                 headers :{
+//                   'Content-Type': 'application/json',
+//                   'Accept': 'application/json',
+//                 },
+//                 method : 'POST',
+//                 body : JSON.stringify(post),
+//             }
+//               )
+//             .then((res) => res.json())
+//             .then((data) => console.log(data))
+//             .catch((error) => { 
+//                 swal({
+//                 title: 'Error!',
+//                 text: error,
+//                 icon: 'error',
+//                 button: 'OK',
+//             })
+//             });
+//         })
+//     })
+// }

@@ -524,7 +524,8 @@ i.fa.vote-icon {
 }
 
 .vote-icon:hover{
-    border: 1px solid #80808078;
+    color: #ff4304 !important;
+    transform: scale(1.08);
 }
 
 p.votes {
@@ -567,6 +568,11 @@ p.user-name {
     color: #808080ba;
 }
 
+p.user-name:hover {
+    color: #ff4304;
+    font-weight: bold;
+}
+
 .user-date {
     margin-left: 10px;
     display: flex;
@@ -605,6 +611,16 @@ ul.post-icons-list {
     color: #808080;
 }
 
+.post-icons-item{
+    padding: 4px 14px;
+}
+
+.post-icons-item:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    color: #ff4304;
+}
+
 .comment {
     background-color: #fff;
     display: flex;
@@ -625,6 +641,10 @@ p.comment-content {
 
 .post-comments {
     margin-bottom: 40px;
+}
+
+.post-comments:hover {
+    box-shadow: 6px -4px 10px 0px #ffa5008c;
 }
 
 /* End Styling Post Container */
@@ -736,10 +756,14 @@ ul.footer-second-list {
     color: #808080;
     font-size: 21px;
     border: none;
-    background-color: white;
+    background-color: white !important;
 }
 
-.delete-btn:hover{
+.edit-btn {
+    font-size: 19px;
+}
+
+.delete-btn:hover, .edit-btn:hover{
     color: var(--blue);
     transform: scale(1.05);
 }

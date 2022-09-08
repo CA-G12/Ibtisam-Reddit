@@ -6,12 +6,14 @@ const deletePost = (req, res, next) => {
 
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded)=>{
         if (err){
-            console.log(err)
+            res.status(200).json({msg: 'Invalid Token'});
         } else {
             deletePostQuery(req.params.id, decoded.id)
-            .then(() => res.redirect('/homePage'))
-            .catch((err) => res.status(500).json({ msg: `server error${err}` }));
-        }
+            .then(() => {
+                res.status(200).json({message: 'Post is deleted successfully'})
+            })
+            .catch((err) => next(err));
+            }
     })
 
 };

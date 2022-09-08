@@ -8,7 +8,7 @@ const isAuthenticated = (req, res, next) => {
     } else {
         jwt.verify(recievedToken, process.env.SECRET_KEY, (err, decoded) => {
             if (err) {
-            res.status(400).json({msg: 'Token invalid'});
+            res.status(400).json({msg: 'Token is invalid'});
             } else {
             res.cookie('username', decoded.username);
             res.cookie('userId', decoded.id);
