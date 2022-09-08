@@ -568,6 +568,11 @@ p.user-name {
     color: #808080ba;
 }
 
+p.user-name:hover {
+    color: #ff4304;
+    font-weight: bold;
+}
+
 .user-date {
     margin-left: 10px;
     display: flex;
@@ -751,10 +756,14 @@ ul.footer-second-list {
     color: #808080;
     font-size: 21px;
     border: none;
-    background-color: white;
+    background-color: white !important;
 }
 
-.delete-btn:hover{
+.edit-btn {
+    font-size: 19px;
+}
+
+.delete-btn:hover, .edit-btn:hover{
     color: var(--blue);
     transform: scale(1.05);
 }
