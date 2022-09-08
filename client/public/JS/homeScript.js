@@ -7,7 +7,14 @@ logout.addEventListener('click', ()=>{
           window.location.href = response.url; 
          } 
        })
-    .catch((err)=> console.log(err))
+    .catch((error) => { 
+    swal({
+        title: 'Error!',
+        text: error,
+        icon: 'error',
+        button: 'OK',
+    })
+    });
 });
 
 // For Adding New Post
@@ -17,7 +24,14 @@ const addPost = document.getElementById('add-post');
 fetch('/homePost')
 .then((data) => data.json())
 .then((response) => createPost(response))
-.catch((err)=> console.log(err));
+.catch((error) => { 
+    swal({
+     title: 'Error!',
+     text: error,
+     icon: 'error',
+     button: 'OK',
+   })
+});
 
 
 const postsContainer = document.getElementById('posts');
@@ -101,17 +115,51 @@ function createPost(response) {
 
 function deletePost(id) {
     fetch(`/delete/${id}`)
-    .then(() => { window.location.href = '/homePage' })
-    .catch(err => console.log(err))
+    .then((res) => res.json())
+        .then((data) =>{ 
+            if(data.message){ 
+                swal({
+                    title: data.message,
+                    icon: 'success',
+                    button: 'OK',
+                })
+                setTimeout(()=>{ window.location.href = '/homePage'}, 2000);
+            }
+        })
+        .catch((error) => { 
+            swal({
+            title: 'Error!',
+            text: error,
+            icon: 'error',
+            button: 'OK',
+        })
+        });
 }
 
 addPost.addEventListener('click', () => {
     if(newPost.value){
         fetch(`/addPost/${newPost.value}`)
-        .then(() => window.location.href = '/homePage')
-        .catch((err)=> console.log(err))
-    } else {
-        alert('Empty Posts are not allowed');
+        .then((res) => res.json())
+        .then((data) =>{ 
+            if(data.message){ 
+                swal({
+                    title: data.message,
+                    icon: 'success',
+                    button: 'OK',
+                })
+                setTimeout(()=>{ window.location.href = '/homePage'}, 2000);
+            }
+        })
+        .catch((error) => { 
+            swal({
+             title: 'Error!',
+             text: error,
+             icon: 'error',
+             button: 'OK',
+           })
+        });
+        } else {
+        swal('Empty Posts are not allowed');
     }
     newPost.value = '';
 });
