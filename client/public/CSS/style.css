@@ -173,16 +173,39 @@ p.trend-section-title {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-image: url('https://www.reuters.com/resizer/Mgqret9qfgkZ4psni1pELqHx_IQ=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/TR22RGDOFJLRZJHMHUWCMOPHQU.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 190px;
     position: relative;
     border-radius: 12px;
 }
 
+#trend1{
+    background-image: url('https://www.reuters.com/resizer/Mgqret9qfgkZ4psni1pELqHx_IQ=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/TR22RGDOFJLRZJHMHUWCMOPHQU.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#trend2{
+    background-image: url('https://lh3.googleusercontent.com/proxy/ugF4u0AM9omVjIDKZC-gAXFF15kI3BxmQkm6-Say7c65QzFNA17sYM7EEcvGRoHW9l9K1kUYQhXCBX_nDtc2soC4lOkZd5iLJlkEDPOUpd6rCD3i96DWYM4Q920iAkaUUgYjwZYQXn2xAMS8=s0-w350-h175-rw-dcpVCamKQI');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#trend3{
+    background-image: url('https://ichef.bbci.co.uk/news/1024/branded_arabic/AC46/production/_126620144_52339913830_e5f2688867_b.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#trend4{
+    background-image: url('https://data.arab48.com/data/news/2022/09/06/Croped/20220906114626.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .trend-card:hover{
     cursor: pointer;
+    box-shadow: 0 0 1px 1px rgba(240, 190, 99, 0.692);
+    transform: scale(1.01)
 }
 
 .trend-content {
@@ -195,11 +218,19 @@ p.trend-section-title {
     background-color: #80808063;
     padding: 7px;
     font-size: 16px;
+    backdrop-filter: blur(1px);
+    border-radius: 12px;
+
 }
 
 p.trend-title {
     font-size: 14px;
     font-weight: bold;
+    margin-bottom: 5px;
+}
+
+p.trend-desc {
+    font-size: 13px;
 }
 /* End Styling Trending Section */
 
@@ -510,9 +541,20 @@ p.votes {
 .user-info {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 10px;
     margin-left: 10px;
+}
+
+.user-left {
+    display: flex;
+    align-items: center;
+}
+
+.user-right {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
 }
 
 img.user-avatar {
@@ -522,17 +564,26 @@ img.user-avatar {
 
 p.user-name {
     color: #808080ba;
-    margin: 0px 20px 0px 13px;
+}
+
+.user-date {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 ul.li-user-icons {
     list-style: none;
     display: flex;
     gap: 19px;
-    margin-left: 145px;
     color: #808080;
     font-size: 20px;
     margin-right: 10px;
+}
+
+p.date {
+    font-size: 11px;
+    color: #808080ba;
 }
 
 .user-content {

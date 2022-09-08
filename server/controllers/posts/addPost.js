@@ -10,9 +10,9 @@ const addPost = (req, res, next) => {
         const content = req.params.post;
         const user_id = token.userId;
         const title = 'this is new post';
+        console.log(content, title, user_id)
         addPostQuery(content, title, user_id)
-        // .then(() => res.status(201).redirect('/homePage'))
-        .catch(err=> console.log(err));
+        .catch(err=> next(err));
       });
     
 };

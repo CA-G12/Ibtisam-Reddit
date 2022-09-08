@@ -6,7 +6,7 @@ const notFound = (req, res) => {
 
 const serverError = (err, req, res, next) => {
   const { status, errorMsg } = err;
-  if (status) {
+  if (status < 500) {
     res.status(err.status).json({ error: errorMsg });
   } else {
       res.status(500).sendFile(path.join(__dirname, '..', '..', 'client', 'public', 'pages', '500.html'));
