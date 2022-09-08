@@ -33,6 +33,7 @@ function signupFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
+  .then(res=>res.json())
   .then((res) => {
     if(res.error){
      swal({
@@ -42,9 +43,9 @@ function signupFun(userInfo) {
         button: 'OK',
       })
     } 
-    else if(res.redirected) {
-      window.location.href = res.url;
-  }
+   else {
+    window.location.assign('/homePage')
+  }  
   })
   .catch((error) => { 
    swal({
@@ -85,16 +86,17 @@ function loginFun(userInfo) {
     body : JSON.stringify(userInfo),
   }
   )
+  .then(res=>res.json())
   .then((res) => {
     if(res.error){
       swal({
-        title: 'res.error',
-        text: '',
-        icon: 'error',
+        title: 'Login Error',
+        text: res.error,
+        icon: 'warning',
         button: 'OK',
       });
-    } else if(res.redirected) {
-      window.location.href = res.url;
+    } else {
+      window.location.assign('/homePage');
   }     
   })
   .catch((error) => { 

@@ -6,7 +6,7 @@ const generateToken = (res, payload) => {
         if(err){
             console.log(err);
         } else {
-            res.cookie('token', token).redirect('/homePage');
+            res.cookie('token', token).json({msg: 'send Successfully'});
         }
     })
 };

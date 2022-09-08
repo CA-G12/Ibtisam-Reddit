@@ -114,12 +114,4 @@ addPost.addEventListener('click', () => {
         alert('Empty Posts are not allowed');
     }
     newPost.value = '';
-    //create new post with edit and delete button with dom 
-    // id clicked it sends to the back the user id with book id and if it matches these it can be deleted.
-    // fetch('/homePost')
-    // .then((data) => data.json())
-    // .then((response) => renderAllPosts(response))
-    // .catch((err)=> console.log(err)); 
-    // or res.redirect('/homePage')
-    // .then(() => { window.location.reload(); });
 });
