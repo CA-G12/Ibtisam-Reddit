@@ -36,16 +36,16 @@ function signupFun(userInfo) {
   .then(res=>res.json())
   .then((res) => {
     if(res.error){
-      swal({
-        title: 'Sign Up Error',
+     swal({
+        title: '',
         text: res.error,
         icon: 'warning',
         button: 'OK',
       })
     } 
-    else{
-      window.location.assign('/homePage'); 
-    }
+   else {
+    window.location.assign('/homePage')
+  }  
   })
   .catch((error) => { 
    swal({
@@ -94,11 +94,10 @@ function loginFun(userInfo) {
         text: res.error,
         icon: 'warning',
         button: 'OK',
-      })
-    } 
-    else{
-      window.location.assign('/homePage'); 
-    }
+      });
+    } else {
+      window.location.assign('/homePage');
+  }     
   })
   .catch((error) => { 
    swal({
