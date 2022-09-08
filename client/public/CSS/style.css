@@ -80,6 +80,7 @@ button.btn.search-btn {
     margin-top: 8px;
 }
 
+
 input.search-input {
     padding: 6px 10px 6px 53px;
     font-size: 16px;
@@ -737,4 +738,17 @@ ul.footer-second-list {
     border: none;
     background-color: white;
 }
+
+.delete-btn:hover{
+    color: var(--blue);
+    transform: scale(1.05);
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: rgb(128 128 128 / 9%);
+    transform: scale(1.05);
+    color:  #3f3f3fad;
+}
+
 /* End Styling Footer */
