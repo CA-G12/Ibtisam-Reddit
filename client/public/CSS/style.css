@@ -524,7 +524,8 @@ i.fa.vote-icon {
 }
 
 .vote-icon:hover{
-    border: 1px solid #80808078;
+    color: #ff4304 !important;
+    transform: scale(1.08);
 }
 
 p.votes {
@@ -605,6 +606,16 @@ ul.post-icons-list {
     color: #808080;
 }
 
+.post-icons-item{
+    padding: 4px 14px;
+}
+
+.post-icons-item:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    color: #ff4304;
+}
+
 .comment {
     background-color: #fff;
     display: flex;
@@ -625,6 +636,10 @@ p.comment-content {
 
 .post-comments {
     margin-bottom: 40px;
+}
+
+.post-comments:hover {
+    box-shadow: 6px -4px 10px 0px #ffa5008c;
 }
 
 /* End Styling Post Container */
