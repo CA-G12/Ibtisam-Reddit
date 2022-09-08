@@ -11,8 +11,7 @@ const addPost = (req, res, next) => {
         const user_id = token.userId;
         const title = 'this is new post';
         addPostQuery(content, title, user_id)
-        // .then(() => res.status(201).redirect('/homePage'))
-        .catch(err=> console.log(err));
+        .catch(err=> next(err));
       });
     
 };

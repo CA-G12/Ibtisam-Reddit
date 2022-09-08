@@ -22,7 +22,7 @@ section#login-modal, #sign-modal {
 
 .left-img {
     width: 25%;
-    background-image: url("https://w0.peakpx.com/wallpaper/683/137/HD-wallpaper-material-design-0224-abstract-blue-colors-digital-gradient-modern-orange-stripes-thumbnail.jpg");
+    background-image: url("https://www.redditstatic.com/accountmanager/bbb584033aa89e39bad69436c504c9bd.png");
     background-size: cover;
 }
 
@@ -142,6 +142,12 @@ button#sign-btn{
 
 button:hover{
     cursor: pointer;
+    background-color: rgb(128 128 128 / 9%);
+    transform: scale(1.05)
+}
+
+button#sign-up-btn:hover, .join-btn:hover, .view-all:hover{
+    color:  #3f3f3fad;
 }
 
 p.forget {
