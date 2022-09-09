@@ -26,12 +26,22 @@ fetch('/homePost')
 .then((response) => createPost(response))
 .catch((error) => { 
     swal({
-     title: 'Error!',
-     text: error,
-     icon: 'error',
-     button: 'OK',
-   })
+        title: 'Error!',
+        text: error,
+        icon: 'error',
+        button: 'OK',
+    })
 });
+
+
+HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
+    const node = document.createElement(nodeType);
+    for (let property in properties) {
+      node[property] = properties[property];
+    }
+    this.appendChild(node);
+    return node;
+  };
 
 
 const postsContainer = document.getElementById('posts');
@@ -39,79 +49,105 @@ const postsContainer = document.getElementById('posts');
 function createPost(response) {
     postsContainer.innerText = '';
     
-    response.forEach((post) => {
-        if(post.content){
-        postsContainer.innerHTML += 
-        `
-        <div class="post-comments">
-                    <div class="post">
-                        <div class="votes-section">
-                            <i class="fa fa-arrow-up vote-icon" aria-hidden="true"></i>
-                            <p class="votes">${post.likes}</p>
-                            <i class="fa fa-arrow-down vote-icon" aria-hidden="true"></i>
-                        </div>
-
-                        <div class="post-content">
-                            <div class="user-info">
-                                <div class="user-left">
-                                    <img src='./assets/reddit-logo.png' alt="" class="user-avatar">
-                                    <div class="user-date">
-                                        <p class="user-name">${post.username}</p>
-                                        <p class="date">${post.post_date}</p>
-                                    </div>
-                                </div>
-                                <div class="user-right">
-                                    <ul class="li-user-icons">
-                                        <li class="user-icon">
-                                            <i class="fa-solid fa-star"></i>                                        </li>
-                                        <li class="user-icon">
-                                            <button class=" delete-btn edit-btn" onClick="editPost(${post.id})">
-                                                <i class="fa-solid fa-pencil"></i>
-                                            </button>
-                                        </li>
-                                        <li class="user-icon" >
-                                            <button class="delete-btn" onClick="deletePost(${post.id})">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                    <button class="join-btn">joined</button>
-                                </div>
-                            </div>
-
-                            <div class="user-content">
-                                <p class="post-content-para">
-                                ${post.content}
-                                </p>
-                            </div>
-
-                            <div class="post-icons">
-                                <ul class="post-icons-list">
-                                    <li class="post-icons-item">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        comment
-                                    </li>
-                                    <li class="post-icons-item">
-                                        <i class="fa fa-share" aria-hidden="true"></i>
-                                        Share
-                                    </li>
-                                    <li class="post-icons-item">
-                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                                        Save
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    response.forEach((ele) => {
         
-        `
+        if(ele.content){
+
+            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
+            const post = postComments.createAppendElement('div', { className : 'post'});
+            const votesSection = post.createAppendElement('div', { className : 'votes-section'});
+            votesSection.createAppendElement('i', { className : 'fa fa-arrow-up vote-icon'});
+            votesSection.createAppendElement('p', { className : 'votes', innerText: ele.likes })
+            votesSection.createAppendElement('i', { className : 'fa fa-arrow-down vote-icon'});
+    
+            const postContent = post.createAppendElement('div', { className : 'post-content'});
+            const userInfo = postContent.createAppendElement('div', { className : 'user-info'});
+            const userLeft = userInfo.createAppendElement('div', { className : 'user-left'});
+            
+            userLeft.createAppendElement('img', { className:  'user-avatar', src : './assets/reddit-logo.png'});
+            const userDate = userLeft.createAppendElement('div', { className: 'user-date'});
+            userDate.createAppendElement('p', { className: 'user-name', textContent: ele.username});
+            userDate.createAppendElement('p', { className: 'date', textContent: ele.post_date});
+            
+            const userRight = userInfo.createAppendElement('div', { className: 'user-right'});
+            const userIcons = userRight.createAppendElement('ul', { className: 'li-user-icons'});
+            const userIconsItem1 = userIcons.createAppendElement('li', { className: 'user-icon'});
+            userIconsItem1.createAppendElement('i', { className: 'fa-solid fa-star'});
+            const userIconsItem2 = userIcons.createAppendElement('li', { className: 'user-icon'});
+            const editBtn = userIconsItem2.createAppendElement('button', { className:'delete-btn edit-btn'});
+            editBtn.createAppendElement('i', { className: 'fa-solid fa-pencil'});
+            editBtn.addEventListener('click', () => editPost(ele.id, ele.content));
+
+            const userIconsItem3 = userIcons.createAppendElement('li', { className: 'user-icon'});
+            const deleteBtn = userIconsItem3.createAppendElement('button', { className:'delete-btn'});
+            deleteBtn.createAppendElement('i', { className: 'fa fa-trash'});
+            userRight.createAppendElement('button', { className: 'join-btn', textContent: 'joined'});
+            deleteBtn.addEventListener('click', ()=> deletePost(ele.id))
+
+            const userContent = postContent.createAppendElement('div', { className: 'user-content'});
+            const postText = userContent.createAppendElement('p', { className: 'post-content-para', textContent: ele.content, id : ele.id});
+
+            const postIcons = postContent.createAppendElement('div', { className: 'post-icons'});
+            const postIconsList = postIcons.createAppendElement('ul', { className: 'post-icons-list'});
+            const postIconItem = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'comment'});
+            postIconItem.createAppendElement('i', { className: 'fa fa-comment' });
+            const postIconItem2 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'share'});
+            postIconItem2.createAppendElement('i', { className: 'fa fa-share' });
+            const postIconItem3 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'Save'});
+            postIconItem3.createAppendElement('i', { className: 'fa fa-bookmark' });
+
+            function editPost(id, content) {
+                addPost.style.display = 'none';
+                const save = document.createElement('button');
+                save.setAttribute('class', 'join-btn')
+                save.textContent = 'Save';
+                const create = document.querySelector('.create-post');
+                create.append(save);
+        
+                newPost.value = content;
+                save.addEventListener('click', () =>{
+                    const postInfo = {
+                        post_id: id,
+                        content: newPost.value
+                    }
+                        fetch(
+                            '/edit', {
+                            headers :{
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            },
+                            method : 'POST',
+                            body : JSON.stringify(postInfo),
+                            }
+                        )
+                        .then(res => res.json())
+                        .then((data) => {
+                            if(data.id === id){
+                                postText.innerText = data.content;
+                            }
+                            newPost.value = '';
+                            save.style.display = 'none';
+                            addPost.style.display = 'block';
+                        })
+                        .catch((error) => { 
+                            swal({
+                                title: 'Error!',
+                                text: error,
+                                icon: 'error',
+                                button: 'OK',
+                            })
+                        });
+                
+            })
+            }
         }
     });
+
+
 }
 
 addPost.addEventListener('click', () => {
-    if(newPost.value){
+    if(newPost.value && (newPost.textContent = 'Add')){
         fetch(`/addPost/${newPost.value}`)
         .then((res) => res.json())
         .then((data) =>{ 
@@ -126,11 +162,11 @@ addPost.addEventListener('click', () => {
         })
         .catch((error) => { 
             swal({
-             title: 'Error!',
-             text: error,
-             icon: 'error',
-             button: 'OK',
-           })
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                button: 'OK',
+            })
         });
         } else {
         swal('Empty Posts are not allowed');
@@ -160,50 +196,3 @@ function deletePost(id) {
         })
     });
 }
-
-// function editPost(id) {
-//     const userInfo = {
-//         post_id: id
-//     }
-//     fetch(
-//         '/edit', {
-//         headers :{
-//           'Content-Type': 'application/json',
-//           'Accept': 'application/json',
-//         },
-//         method : 'POST',
-//         body : JSON.stringify(userInfo),
-//       }
-//       )
-//     .then((res) => res.json())
-//     .then((data) => {
-//         addPost.textContent = 'edit';
-//         newPost.value = data[0].content;
-//         const post = {
-//             post_id: id,
-//             content: newPost.value
-//         }
-//         addPost.addEventListener('click', () =>{
-//             fetch(
-//                 '/edit/post', {
-//                 headers :{
-//                   'Content-Type': 'application/json',
-//                   'Accept': 'application/json',
-//                 },
-//                 method : 'POST',
-//                 body : JSON.stringify(post),
-//             }
-//               )
-//             .then((res) => res.json())
-//             .then((data) => console.log(data))
-//             .catch((error) => { 
-//                 swal({
-//                 title: 'Error!',
-//                 text: error,
-//                 icon: 'error',
-//                 button: 'OK',
-//             })
-//             });
-//         })
-//     })
-// }

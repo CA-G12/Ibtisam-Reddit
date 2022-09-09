@@ -18,6 +18,7 @@
 body{
     background-color: var(--light-blue);
 }
+
 /* Start Styling Header */
 nav {
     display: flex;
@@ -612,7 +613,11 @@ ul.post-icons-list {
 }
 
 .post-icons-item{
+    display: flex;
     padding: 4px 14px;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 7px
 }
 
 .post-icons-item:hover{
