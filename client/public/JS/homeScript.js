@@ -26,11 +26,11 @@ fetch('/homePost')
 .then((response) => createPost(response))
 .catch((error) => { 
     swal({
-     title: 'Error!',
-     text: error,
-     icon: 'error',
-     button: 'OK',
-   })
+        title: 'Error!',
+        text: error,
+        icon: 'error',
+        button: 'OK',
+    })
 });
 
 
@@ -76,7 +76,7 @@ function createPost(response) {
             const userIconsItem2 = userIcons.createAppendElement('li', { className: 'user-icon'});
             const editBtn = userIconsItem2.createAppendElement('button', { className:'delete-btn edit-btn'});
             editBtn.createAppendElement('i', { className: 'fa-solid fa-pencil'});
-            // editBtn.addEventListener('click', () => editPost(ele.id));
+            editBtn.addEventListener('click', () => editPost(ele.id, ele.content));
 
             const userIconsItem3 = userIcons.createAppendElement('li', { className: 'user-icon'});
             const deleteBtn = userIconsItem3.createAppendElement('button', { className:'delete-btn'});
@@ -85,7 +85,7 @@ function createPost(response) {
             deleteBtn.addEventListener('click', ()=> deletePost(ele.id))
 
             const userContent = postContent.createAppendElement('div', { className: 'user-content'});
-            userContent.createAppendElement('p', { className: 'post-content-para', textContent: ele.content});
+            const postText = userContent.createAppendElement('p', { className: 'post-content-para', textContent: ele.content, id : ele.id});
 
             const postIcons = postContent.createAppendElement('div', { className: 'post-icons'});
             const postIconsList = postIcons.createAppendElement('ul', { className: 'post-icons-list'});
@@ -95,12 +95,59 @@ function createPost(response) {
             postIconItem2.createAppendElement('i', { className: 'fa fa-share' });
             const postIconItem3 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'Save'});
             postIconItem3.createAppendElement('i', { className: 'fa fa-bookmark' });
+
+            function editPost(id, content) {
+                addPost.style.display = 'none';
+                const save = document.createElement('button');
+                save.setAttribute('class', 'join-btn')
+                save.textContent = 'Save';
+                const create = document.querySelector('.create-post');
+                create.append(save);
+        
+                newPost.value = content;
+                save.addEventListener('click', () =>{
+                    const postInfo = {
+                        post_id: id,
+                        content: newPost.value
+                    }
+                        fetch(
+                            '/edit', {
+                            headers :{
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            },
+                            method : 'POST',
+                            body : JSON.stringify(postInfo),
+                            }
+                        )
+                        .then(res => res.json())
+                        .then((data) => {
+                            if(data.id === id){
+                                postText.innerText = data.content;
+                            }
+                            newPost.value = '';
+                            save.style.display = 'none';
+                            addPost.style.display = 'block';
+                        })
+                        .catch((error) => { 
+                            swal({
+                                title: 'Error!',
+                                text: error,
+                                icon: 'error',
+                                button: 'OK',
+                            })
+                        });
+                
+            })
+            }
         }
     });
+
+
 }
 
 addPost.addEventListener('click', () => {
-    if(newPost.value){
+    if(newPost.value && (newPost.textContent = 'Add')){
         fetch(`/addPost/${newPost.value}`)
         .then((res) => res.json())
         .then((data) =>{ 
@@ -115,11 +162,11 @@ addPost.addEventListener('click', () => {
         })
         .catch((error) => { 
             swal({
-             title: 'Error!',
-             text: error,
-             icon: 'error',
-             button: 'OK',
-           })
+                title: 'Error!',
+                text: error,
+                icon: 'error',
+                button: 'OK',
+            })
         });
         } else {
         swal('Empty Posts are not allowed');
@@ -149,29 +196,3 @@ function deletePost(id) {
         })
     });
 }
-
-// function editPost(id) {
-//     const userInfo = {
-//         post_id: id,
-//         content: 
-//     }
-//     fetch(
-//         '/edit', {
-//         headers :{
-//           'Content-Type': 'application/json',
-//           'Accept': 'application/json',
-//         },
-//         method : 'POST',
-//         body : JSON.stringify(userInfo),
-//       }
-//       )
-//     .then((res) => res.json())
-//     .then((data) => {
-//         addPost.textContent = 'edit';
-//         newPost.value = data[0].content;
-//         const post = {
-//             post_id: id,
-//             content: newPost.value
-//         }
-//         })
-// }
