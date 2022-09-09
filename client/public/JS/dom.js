@@ -6,3 +6,4 @@ detailsContainer.forEach((container)=>{
         showDetails.classList.toggle('show-container');
     })
 })
+

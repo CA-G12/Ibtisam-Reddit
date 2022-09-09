@@ -10,80 +10,65 @@ fetch('/post')
      button: 'OK',
    })
  });
+
+ HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
+    const node = document.createElement(nodeType);
+    for (let property in properties) {
+      node[property] = properties[property];
+    }
+    this.appendChild(node);
+    return node;
+  };
+
+
 const postsContainer = document.getElementById('posts');
 
 function renderAllPosts(response) {
+    console.log(response)
     postsContainer.innerText = '';
+    response.forEach((ele) => {
+        
+        if(ele.content){
 
-    response.forEach((post) => {
-        if(post.content){
-        postsContainer.innerHTML += 
-        `
-        <div class="post-comments">
-                    <div class="post">
-                        <div class="votes-section">
-                            <i class="fa fa-arrow-up vote-icon" aria-hidden="true"></i>
-                            <p class="votes">${post.likes}</p>
-                            <i class="fa fa-arrow-down vote-icon" aria-hidden="true"></i>
-                        </div>
+            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
+            const post = postComments.createAppendElement('div', { className : 'post'});
+            const votesSection = post.createAppendElement('div', { className : 'votes-section'});
+            votesSection.createAppendElement('i', { className : 'fa fa-arrow-up vote-icon'});
+            votesSection.createAppendElement('p', { className : 'votes', innerText: ele.likes })
+            votesSection.createAppendElement('i', { className : 'fa fa-arrow-down vote-icon'});
+    
+            const postContent = post.createAppendElement('div', { className : 'post-content'});
+            const userInfo = postContent.createAppendElement('div', { className : 'user-info'});
+            const userLeft = userInfo.createAppendElement('div', { className : 'user-left'});
+            
+            userLeft.createAppendElement('img', { className:  'user-avatar', src : './assets/reddit-logo.png'});
+            const userDate = userLeft.createAppendElement('div', { className: 'user-date'});
+            userDate.createAppendElement('p', { className: 'user-name', textContent: ele.username});
+            userDate.createAppendElement('p', { className: 'date', textContent: ele.post_date});
+            
+            const userRight = userInfo.createAppendElement('div', { className: 'user-right'});
+            const userIcons = userRight.createAppendElement('ul', { className: 'li-user-icons'});
+            const userIconsItem1 = userIcons.createAppendElement('li', { className: 'user-icon'});
+            userIconsItem1.createAppendElement('i', { className: 'fa-solid fa-star'});
+            const userIconsItem2 = userIcons.createAppendElement('li', { className: 'user-icon'});
+            userIconsItem2.createAppendElement('i', { className: 'fa fa-briefcase'});
 
-                        <div class="post-content">
-                            <div class="user-info">
-                                <div class="user-left">
-                                    <img src='./assets/reddit-logo.png' alt="" class="user-avatar">
-                                    <div class="user-date">
-                                        <p class="user-name">${post.username}</p>
-                                        <p class="date">${post.post_date}</p>
-                                    </div>
-                                </div>
-                                <div class="user-right">
-                                        <ul class="li-user-icons">
-                                            <li class="user-icon">
-                                            <i class="fa fa-address-book" aria-hidden="true"></i>
-                                        </li>
-                                        <li class="user-icon">
-                                            <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                        </li>
-                                        <li class="user-icon">
-                                            <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                                        </li>
-                                        <li class="user-icon" >
-                                            <button class="delete-btn" onClick="deletePost(${post.id})">
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                    <button class="join-btn">joined</button>
-                                </div>
-                            </div>
+            const userIconsItem3 = userIcons.createAppendElement('li', { className: 'user-icon'});
+            userIconsItem3.createAppendElement('i', { className: 'fa fa-address-book'});
+            userRight.createAppendElement('button', { className: 'join-btn', textContent: 'joined'});
 
-                            <div class="user-content">
-                                <p class="post-content-para">
-                                ${post.content}
-                                </p>
-                            </div>
+            const userContent = postContent.createAppendElement('div', { className: 'user-content'});
+            userContent.createAppendElement('p', { className: 'post-content-para', textContent: ele.content});
 
-                            <div class="post-icons">
-                                <ul class="post-icons-list">
-                                    <li class="post-icons-item">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        comment
-                                    </li>
-                                    <li class="post-icons-item">
-                                        <i class="fa fa-share" aria-hidden="true"></i>
-                                        Share
-                                    </li>
-                                    <li class="post-icons-item">
-                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                                        Save
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-        `
+            const postIcons = postContent.createAppendElement('div', { className: 'post-icons'});
+            const postIconsList = postIcons.createAppendElement('ul', { className: 'post-icons-list'});
+            const postIconItem = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'comment'});
+            postIconItem.createAppendElement('i', { className: 'fa fa-comment' });
+            const postIconItem2 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'share'});
+            postIconItem2.createAppendElement('i', { className: 'fa fa-share' });
+            const postIconItem3 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'Save'});
+            postIconItem3.createAppendElement('i', { className: 'fa fa-bookmark' });
         }
     });
+
 }
