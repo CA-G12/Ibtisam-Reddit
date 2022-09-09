@@ -1,23 +1,18 @@
 section#login-modal, #sign-modal {
-    margin-bottom: 200px;
-    margin-left: 100px;
-    position: fixed;
     top: 0;
-    left: 0;
     display: none;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    width: 70%;
+    width: 100vw;
     background-color: #ffffff20;
     backdrop-filter: blur(.3rem);
     z-index: 2000;
-    margin-left: 200px;
 }
 
 .modal-container {
+    margin-left: 32%;
     display: flex;
     flex-direction: row;
+    width: 45%;
 }
 
 .left-img {
