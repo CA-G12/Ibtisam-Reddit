@@ -3,6 +3,7 @@ section#login-modal, #sign-modal {
     display: none;
     height: 100vh;
     width: 100vw;
+    position: fixed;
     background-color: #ffffff20;
     backdrop-filter: blur(.3rem);
     z-index: 2000;
