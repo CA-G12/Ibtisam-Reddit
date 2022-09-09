@@ -10,7 +10,7 @@ section#login-modal, #sign-modal {
 }
 
 .modal-container {
-    margin-left: 32%;
+    margin-left: 28%;
     display: flex;
     flex-direction: row;
     width: 45%;
