@@ -150,7 +150,7 @@ function createPost(response) {
 }
 
 addPost.addEventListener('click', () => {
-    if(newPost.value && (newPost.textContent = 'Add')){
+    if(newPost.value){
         fetch(`/addPost/${newPost.value}`)
         .then((res) => res.json())
         .then((data) =>{ 
@@ -199,3 +199,12 @@ function deletePost(id) {
         })
     });
 }
+
+const userProfile = document.querySelector('.user-profile');
+
+userProfile.addEventListener('click', () => {
+    fetch('/profile/user')
+    .then(res => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
+})
