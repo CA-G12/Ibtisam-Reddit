@@ -105,6 +105,7 @@ function createPost(response) {
                 create.append(save);
         
                 newPost.value = content;
+                scroll({top: 250});
                 save.addEventListener('click', () =>{
                     const postInfo = {
                         post_id: id,
