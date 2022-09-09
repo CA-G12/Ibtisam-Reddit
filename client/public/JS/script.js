@@ -1,17 +1,17 @@
 
 fetch('/post')
-.then((data) => data.json())
+.then(res => res.json())
 .then((response) => renderAllPosts(response))
 .catch((error) => { 
     swal({
-     title: 'Error!',
-     text: error,
-     icon: 'error',
-     button: 'OK',
-   })
- });
+      title: 'Error!',
+      text: error,
+      icon: 'error',
+      button: 'OK',
+  })
+});
 
- HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
+HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
     const node = document.createElement(nodeType);
     for (let property in properties) {
       node[property] = properties[property];
@@ -55,7 +55,7 @@ function renderAllPosts(response) {
 
             const userIconsItem3 = userIcons.createAppendElement('li', { className: 'user-icon'});
             userIconsItem3.createAppendElement('i', { className: 'fa fa-address-book'});
-            userRight.createAppendElement('button', { className: 'join-btn', textContent: 'joined'});
+            userRight.createAppendElement('button', { className: 'join-btn', textContent: 'join'});
 
             const userContent = postContent.createAppendElement('div', { className: 'user-content'});
             userContent.createAppendElement('p', { className: 'post-content-para', textContent: ele.content});
