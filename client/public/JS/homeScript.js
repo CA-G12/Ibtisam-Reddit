@@ -96,14 +96,16 @@ function createPost(response) {
             const postIconItem3 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'Save'});
             postIconItem3.createAppendElement('i', { className: 'fa fa-bookmark' });
 
+            const save = document.createElement('button');
+            save.setAttribute('class', 'join-btn')
+            save.textContent = 'Save';
+            const create = document.querySelector('.create-post');
+            create.append(save);
+            save.style.display = 'none';
+
             function editPost(id, content) {
                 addPost.style.display = 'none';
-                const save = document.createElement('button');
-                save.setAttribute('class', 'join-btn')
-                save.textContent = 'Save';
-                const create = document.querySelector('.create-post');
-                create.append(save);
-        
+                save.style.display = 'block';
                 newPost.value = content;
                 scroll({top: 250});
                 save.addEventListener('click', () =>{
