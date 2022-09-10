@@ -4,7 +4,7 @@
 
 ### About this site :heart:
 
-It's [reddit](https://www.reddit.com/) clone to demonstarte test what we have learned over the past eight weeks.
+It's [reddit](https://www.reddit.com/) clone to demonstarte and test what we have learned over the past eight weeks.
 
 
 ## User Stories :book:
