@@ -13,6 +13,5 @@ postsRouter.get('/delete/:id', deletePost);
 postsRouter.post('/edit', editPost);
 postsRouter.get('/comments', getComments);
 postsRouter.get('/profile/user', isAuthenticated, getUserPost);
-// postsRouter.get('userProfile', showProfile);
 
 module.exports = postsRouter;
