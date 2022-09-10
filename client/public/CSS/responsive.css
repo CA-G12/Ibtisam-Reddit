@@ -1,0 +1,184 @@
+@media only screen and (max-width: 600px) {
+    .search-container{
+      display: none;
+    }
+
+    .logo-name{
+        margin-left: 0;
+    }
+
+    button.log-in, button.sign-up{
+        padding: 5px 7px;
+        margin-left: 0;
+        font-size: 15px;
+    }
+
+    .trend-container{
+        flex-direction: column;
+    }
+
+    main{
+        flex-direction: column;
+    }
+
+    .top {
+        display: none;
+    }
+
+    section.posts {
+        width: 100%;
+    }
+
+    .popular-container {
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+        padding: 13px 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    ul.popular-list {
+        gap: 2px;
+        font-size: 12px;
+    }
+
+    li.popular-item {
+        padding: 5px 9px;
+        gap: 5px;
+    }
+
+    .right-icons{
+        display: none;
+    }
+
+    .votes-section{
+        width: 30px;
+    }
+
+    ul.li-user-icons {
+        gap: 6px;
+        color: #808080;
+        font-size: 14px;
+    }
+
+    p.date {
+        font-size: 8px;
+        color: #808080ba;
+    }
+
+    p.user-name {
+        color: #808080ba;
+        font-size: 11px;
+    }
+
+    button.join-btn {
+        border: none;
+        background-color: var(--blue);
+        color: white;
+        border-radius: 15px;
+        padding: 1px 10px;
+        font-size: 12px;
+    }
+
+    .user-left {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    img.user-avatar {
+        height: 30px;
+        border-radius: 50%;
+    }
+
+    ul.post-icons-list {
+        gap: 0px;
+    }
+
+    .post-icons-item {
+        display: flex;
+        padding: 2px 6px;
+        font-size: 14px;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: 9px;
+    }
+
+    .user-content {
+        padding: 0px 15px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .login-container {
+        padding: 30px;
+        width: 139%;
+        background-color: white;
+    }
+
+    .sign-container {
+        padding: 24px;
+        width: 135%;
+        background-color: white;
+    }
+
+    img.create-img {
+        height: 43px;
+    }
+
+    input.post-text {
+        width: 432px;
+        height: 41px;
+        padding-left: 11px;
+    }
+
+    i.create-icon {
+        display: none;
+    }
+
+    .user-right {
+        margin-right: 0px;
+    }
+
+    .edit-btn {
+        font-size: 15px;
+    }
+
+    .delete-btn {
+        font-size: 17px;
+    }
+
+    button.join-btn {
+        padding: 2px 10px;
+        font-size: 10px;
+    }
+
+    p#username {
+        margin-right: 5px;
+    }
+
+    .user-profile {
+        padding: 6px 6px;
+    }
+
+    button#log-out-btn {
+        font-size: 32px;
+        margin-right: 10px;
+    }
+
+    aside.right, aside.left {
+        display: none;
+    }
+
+    section.home-page {
+        width: 100%;
+    }
+  }
