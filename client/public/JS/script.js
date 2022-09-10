@@ -1,4 +1,4 @@
-const postsContainer = document.querySelector('.post-comments');
+const postsContainer = document.getElementById('posts');
 
 fetch('/post')
 .then(res => res.json())
@@ -30,8 +30,8 @@ function renderAllPosts(response) {
     response.forEach((ele) => {
         
         if(ele.content){
-          
-            const post = postsContainer.createAppendElement('div', { className : 'post', id: ele.id});
+            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
+            const post = postComments.createAppendElement('div', { className : 'post'});
             const votesSection = post.createAppendElement('div', { className : 'votes-section'});
             votesSection.createAppendElement('i', { className : 'fa fa-arrow-up vote-icon'});
             votesSection.createAppendElement('p', { className : 'votes', innerText: ele.likes })
