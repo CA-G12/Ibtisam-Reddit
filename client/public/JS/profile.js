@@ -1,29 +1,6 @@
-//logout needed variables
-const logout = document.getElementById('log-out-btn');
-logout.addEventListener('click', ()=>{
-    fetch('/logOut')
-    .then((response) => {
-        if (response.redirected) {
-          window.location.href = response.url; 
-         } 
-       })
-    .catch((error) => { 
-    swal({
-        title: 'Error!',
-        text: error,
-        icon: 'error',
-        button: 'OK',
-    })
-    });
-});
-
-// For Adding New Post
-const newPost = document.getElementById('new-post');
-const addPost = document.getElementById('add-post');
-
-fetch('/homePost')
-.then((data) => data.json())
-.then((response) => createPost(response))
+fetch('/profile/user')
+.then((res) => res.json())
+.then((data) => createPost(data))
 .catch((error) => { 
     swal({
         title: 'Error!',
@@ -33,24 +10,34 @@ fetch('/homePost')
     })
 });
 
-
 HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
     const node = document.createElement(nodeType);
     for (let property in properties) {
-      node[property] = properties[property];
+        node[property] = properties[property];
     }
     this.appendChild(node);
     return node;
-  };
+};
 
-
+// For Adding New Post
+const newPost = document.getElementById('new-post');
+const addPost = document.getElementById('add-post');
 const postsContainer = document.getElementById('posts');
+const usernameLeft = document.querySelector('.username');
+const username = document.querySelector('.name');
+const namee = document.querySelector('.name-light');
+const home = document.querySelector('.home');
+home.addEventListener('click', () => {
+    window.location.href='/homePage'
+})
 
-function createPost(response) {
+function createPost(data) {
     postsContainer.innerText = '';
     
-    response.forEach((ele) => {
-        
+    data.forEach((ele) => {
+        usernameLeft.textContent = ele.username;
+        username.textContent = ele.username;
+        namee.textContent = '@'+ele.username;
         if(ele.content){
 
             const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
@@ -145,9 +132,8 @@ function createPost(response) {
             }
         }
     });
-
-
 }
+
 
 addPost.addEventListener('click', () => {
     if(newPost.value){
@@ -199,10 +185,3 @@ function deletePost(id) {
         })
     });
 }
-
-const userProfile = document.querySelector('.user-profile');
-
-userProfile.addEventListener('click', () => {
-    window.location.assign('/userProfile')
-    
-})

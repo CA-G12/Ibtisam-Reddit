@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="shortcut icon" href="./assets/reddit-logo.png" type="image/x-icon">
+    <title>Profile</title>
+</head>
+<body>
+    <main class="profile">
+        <aside class="left">
+            <div class="left-list">
+                <div class="left-up">
+                    <ul class="icons-list">
+                        <li class="left-item">
+                            <i class="fa-solid fa-house left-icon"></i>
+                            Themes
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-brands fa-slack left-icon"></i>                    
+                            Slack
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-solid fa-bell left-icon"></i>
+                            Notifications
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-regular fa-envelope left-icon"></i>
+                            Messages
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-solid fa-user left-icon"></i>
+                            Profile
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-solid fa-bookmark left-icon"></i>
+                            Bookmark
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-brands fa-gg left-icon"></i>
+                            Lists
+                        </li>
+                        <li class="left-item">
+                            <i class="fa-solid fa-sliders left-icon"></i>
+                            More
+                        </li>
+                    </ul>
+                    <button class="share"> Share </button>
+                </div>
+                <div class="left-bottom">
+                    <img src="./assets/user-profile.png" alt="Avatar" class="avatar-left">
+                    <p class="username">@ Ibtisam Hemmo</p>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+        </aside>
+
+        <section class="home-page">
+            <header>
+                <div class="home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <p class="homepage">Home Page</p>
+                </div>
+            </header>
+            <div class="profile-imgs">
+                <div class="img-banner">
+                    <img src="./assets/user-profile.png" alt="" class="profile-image">
+                </div>
+            </div>
+            <div class="profile-info">
+                <button class="settings">Profile Settings</button>
+            </div>
+            <div class="user-data">
+                <p class="name">Ibtisam Hemmo</p>
+                <div class="name-icons">
+                    <i class="fa-brands fa-phoenix-framework"></i>                    
+                    <p class="name-light">@ Ibtisam Hemmo</p>
+                </div>
+                <div class="follower">
+                    <p class="following">
+                        289 Following
+                    </p>
+                    <p class="followers">
+                        45 followers
+                    </p>
+                </div>
+            </div>
+
+            <div class="create-post">
+                <img src="./assets/reddit-logo.png" alt="" class="create-img">
+                <input type="text" class="post-text" placeholder="Create Your Own Post" id="new-post">
+                <button class="join-btn" id="add-post">Add</button>
+                <i class=" create-icon fa fa-picture-o" aria-hidden="true"></i>
+                <i class=" create-icon fa fa-link" aria-hidden="true"></i>
+            </div>
+
+            <div class="posts-container" id ='posts'>
+            </div>
+        </section>
+
+        <aside class="right">
+            <div class="search-right">
+                <input type="search" class="search-input-right" placeholder="Search Reddit">
+                <button class="btn search-btn-right">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+            <div class="middle-right">
+                <p class="headline-middle">Hot Topics</p>
+                <ul class="middle-right">
+                    <li class="right-item">
+                        <img src="./assets/reddit-logo.png" alt="" class="item">
+                        <div class="names">
+                            <p class="item-name">Ibtisam Hemmo</p>
+                            <p class="item-name-light">@Ibtisam Hemmo</p>
+                        </div>
+                        <button class="read">Read</button>
+                    </li>
+                    <li class="right-item">
+                        <img src="./assets/reddit-logo.png" alt="" class="item">
+                        <div class="names">
+                            <p class="item-name">Ibtisam Hemmo</p>
+                            <p class="item-name-light">@Ibtisam Hemmo</p>
+                        </div>
+                        <button class="read">Read</button>
+                    </li>
+                </ul>
+                <p class="more-info">Show more....</p>
+            </div>
+
+            <div class="trends">
+                <p class="trend">
+                    Trends for you
+                    <i class="fa-solid fa-gear"></i>
+                </p>
+                <ul class="trends-list">
+                    <li class="trends-item">
+                        <div class="trends-info">
+                            <p class="pop">1. Popular</p>
+                            <p class="hash">#The main news of the day</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li class="trends-item">
+                        <div class="trends-info">
+                            <p class="pop">2. Popular</p>
+                            <p class="hash">#News of the day</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li class="trends-item">
+                        <div class="trends-info">
+                            <p class="pop">3. Popular</p>
+                            <p class="hash">#It is very interesting</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                    <li class="trends-item">
+                        <div class="trends-info">
+                            <p class="pop">4. Popular</p>
+                            <p class="hash">#Problems of the day</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </li>
+                </ul>
+                <p class="more-info">Show more....</p>
+
+            </div>
+
+        </aside>
+    </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://use.fontawesome.com/cf3935a44e.js"></script>
+    <script src="./JS/profile.js"></script>
+    <script src="./JS/homeScript.js"></script>
+</body>
+</html>
