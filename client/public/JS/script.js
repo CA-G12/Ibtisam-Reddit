@@ -30,7 +30,7 @@ function renderAllPosts(response) {
     response.forEach((ele) => {
         
         if(ele.content){
-            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
+            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments', id : ele.id});
             const post = postComments.createAppendElement('div', { className : 'post'});
             const votesSection = post.createAppendElement('div', { className : 'votes-section'});
             votesSection.createAppendElement('i', { className : 'fa fa-arrow-up vote-icon'});
@@ -71,43 +71,35 @@ function renderAllPosts(response) {
         }
     });
 
-    const postid = document.querySelectorAll('.post');
-    console.log(postid[0].id);
     fetch('/comments')
     .then(res => res.json())
     .then((response) => renderComments(response))
     .catch((error) => { 
         swal({
-          title: 'Error!',
-          text: error,
+            title: 'Error!',
+            text: error,
           icon: 'error',
           button: 'OK',
       })
     });
+    
+    const postid = document.querySelectorAll('.post-comments');
 
     function renderComments(response){
-      console.log(response[0].post_id);
-      const comments  = document.createElement('div');
-      comments.className = 'comments';
+      const comments =document.createElement('div');
+      comments.setAttribute('class', 'comments');
+      
+      response.forEach(ele => {
+        console.log(ele)
+        const commentr = comments.createAppendElement('div', { className: 'comment'});
+        commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
+        commentr.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
 
-      response.forEach(comment => {
-        comments.innerText += 
-        `
-                          <div class="comment">
-                              <img src="./assets/reddit-logo.png" alt="" class="comment-logo">
-                              <p class="comment-content">
-                                  ${comment.content}
-                              </p>
-                          </div>
-        `
-        postid.forEach((post) => {
-          if(post.id === comment.post_id){
-            console.log(post.id)
-            post.appendChild(comments);
+        postid.forEach((postt) => {
+          if(postt.id == ele.post_id){
+            postt.appendChild(commentr);
           }
         })
       })
     }
-
-
 }
