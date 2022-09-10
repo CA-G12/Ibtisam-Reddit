@@ -24,7 +24,6 @@ HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
 const postsContainer = document.getElementById('posts');
 
 function renderAllPosts(response) {
-    console.log(response)
     postsContainer.innerText = '';
     response.forEach((ele) => {
         
