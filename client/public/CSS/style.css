@@ -1075,3 +1075,32 @@ li.trends-item:hover {
     transform: scale(1.03);
 }
 /* End Styling Profile */
+
+.add-comment {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+img.comment-img {
+    height: 50px;
+    margin: 7px;
+}
+
+input.comment-text {
+    width: 511px;
+    height: 52px;
+    margin-right: 16px;
+    padding-left: 14px;
+    border-radius: 41px;
+    border: 1px solid #80808073;
+    outline: none;
+}
+
+button.add-btn {
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 15px;
+    padding: 12px 19px;
+}

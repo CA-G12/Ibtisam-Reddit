@@ -94,6 +94,48 @@ function createPost(response) {
             const postIconItem3 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'Save'});
             postIconItem3.createAppendElement('i', { className: 'fa fa-bookmark' });
 
+            const addComment = postComments.createAppendElement('div', {className: 'add-comment'});
+            addComment.createAppendElement('img', {src: './assets/reddit-logo.png', className: 'comment-img'});
+            addComment.createAppendElement('input', {className: 'comment-text', placeholder: 'Add Your Comment'});
+            addComment.createAppendElement('button', {className: 'add-btn', id: 'add-comment', textContent :'Add'})
+            
+            // const commentValue = document.querySelectorAll('.comment-text');
+            // const addCommBtn = document.querySelectorAll('.add-btn');
+
+            // addCommBtn.forEach((btn)=> {
+            //     btn.addEventListener('click', ()=> {
+            //         console.log('commentValue')
+            //     })
+            // })
+
+            // addurComment.addEventListener('click', () => {
+            //     if(newPost.value){
+            //         fetch(`/addComment/${newPost.value}`)
+            //         .then((res) => res.json())
+            //         .then((data) =>{ 
+            //             if(data.message){ 
+            //                 swal({
+            //                     title: data.message,
+            //                     icon: 'success',
+            //                     button: 'OK',
+            //                 })
+            //                 setTimeout(()=>{ window.location.reload()}, 2000);
+            //             }
+            //         })
+            //         .catch((error) => { 
+            //             swal({
+            //                 title: 'Error!',
+            //                 text: error,
+            //                 icon: 'error',
+            //                 button: 'OK',
+            //             })
+            //         });
+            //         } else {
+            //         swal('Empty Posts are not allowed');
+            //     }
+            //     newPost.value = '';
+            // });
+            
             const save = document.createElement('button');
             save.setAttribute('class', 'join-btn')
             save.textContent = 'Save';
@@ -141,10 +183,39 @@ function createPost(response) {
                 
             })
             }
+
+            fetch('/comments')
+            .then(res => res.json())
+            .then((response) => renderComments(response))
+            .catch((error) => { 
+                swal({
+                    title: 'Error!',
+                    text: error,
+                  icon: 'error',
+                  button: 'OK',
+              })
+            });
+            
+            const postid = document.querySelectorAll('.post-comments');
+        
+            function renderComments(response){
+              const comments =document.createElement('div');
+              comments.setAttribute('class', 'comments');
+              
+              response.forEach(ele => {
+                const commentr = comments.createAppendElement('div', { className: 'comment'});
+                commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
+                commentr.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
+        
+                postid.forEach((postt) => {
+                  if(postt.id == ele.post_id){
+                    postt.appendChild(commentr);
+                  }
+                })
+              })
+            }
         }
     });
-
-
 }
 
 addPost.addEventListener('click', () => {
