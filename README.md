@@ -32,15 +32,15 @@ As a user:
 
 ## Tech Stack : :clipboard:
 * Git Work Flow
-* NPM modules
+* NPM pakages [Jest, Supertest, Eslint, Bcrypt, Joi, jsonwebtoken, nodemon, dotenv, cross-env, cookie-pares, pg, compression]
 * Jest
 * HTML5
 * CSS3
 * Java Script (JS)
 * Node js
 * Express
-* Postgres
-* Herouku Deployment
+* Postgres SQL
+* Heroku Deployment
 
 ### By :
 **[Ibtisam hemmo :sparkling_heart:](https://github.com/ibtisam-hemmo)**
