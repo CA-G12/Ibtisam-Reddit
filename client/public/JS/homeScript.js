@@ -1,3 +1,17 @@
+const newPost = document.getElementById('new-post');
+const addPost = document.getElementById('add-post');
+const postsContainer = document.getElementById('posts');
+const userProfile = document.querySelector('.user-profile');
+
+HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
+    const node = document.createElement(nodeType);
+    for (let property in properties) {
+        node[property] = properties[property];
+    }
+    this.appendChild(node);
+    return node;
+};
+
 //logout needed variables
 const logout = document.getElementById('log-out-btn');
 logout.addEventListener('click', ()=>{
@@ -17,9 +31,6 @@ logout.addEventListener('click', ()=>{
     });
 });
 
-// For Adding New Post
-const newPost = document.getElementById('new-post');
-const addPost = document.getElementById('add-post');
 
 fetch('/homePost')
 .then((data) => data.json())
@@ -32,19 +43,6 @@ fetch('/homePost')
         button: 'OK',
     })
 });
-
-
-HTMLElement.prototype.createAppendElement = function (nodeType, properties) {
-    const node = document.createElement(nodeType);
-    for (let property in properties) {
-      node[property] = properties[property];
-    }
-    this.appendChild(node);
-    return node;
-  };
-
-
-const postsContainer = document.getElementById('posts');
 
 function createPost(response) {
     postsContainer.innerText = '';
@@ -199,8 +197,6 @@ function deletePost(id) {
         })
     });
 }
-
-const userProfile = document.querySelector('.user-profile');
 
 userProfile.addEventListener('click', () => {
     window.location.assign('/userProfile')
