@@ -6,6 +6,7 @@ const getUserPostQuery = (id)=> {
         'text': ` SELECT users.username,
                     users.avatar,
                     posts.content,
+                    posts.id,
                     posts.post_date, 
                     posts.likes
             from users left join posts 
