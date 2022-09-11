@@ -130,6 +130,78 @@ function createPost(data) {
                 
             })
             }
+            fetch('/comments')
+            .then(res => res.json())
+            .then((response) => renderComments(response))
+            .catch((error) => { 
+                swal({
+                    title: 'Error!',
+                    text: error,
+                  icon: 'error',
+                  button: 'OK',
+              })
+            });
+                    
+            function renderComments(response){
+              const comments = document.createElement('div');
+              comments.setAttribute('class', 'comments');
+
+              const addComment = comments.createAppendElement('div', { className: 'add-comment'});
+              addComment.createAppendElement('img', {src: './assets/reddit-logo.png', className: 'comment-img'});
+              const comCon = addComment.createAppendElement('input', {className: 'comment-text', placeholder: 'Add Your Comment'});
+              const  addCo = addComment.createAppendElement('button', {className: 'add-btn', textContent :'Add'})
+              
+              addCo.addEventListener('click', (e) => {
+                const commentInfo = {
+                    content : comCon.value,
+                    postId : e.target.parentNode.parentNode.id
+                }
+                fetch(
+                    '/addComment', {
+                    headers :{
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json',
+                    },
+                    method : 'POST',
+                    body : JSON.stringify(commentInfo),
+                  }
+                  )
+                .then(res=>res.json())
+                .then((res) => {
+                    if(res.error){
+                    swal({
+                        title: '',
+                        text: res.error,
+                        icon: 'warning',
+                        button: 'OK',
+                    })
+                    } 
+                    window.location.reload();
+                })
+                .catch((error) => { 
+                swal({
+                    title: 'Error!',
+                    text: error,
+                    icon: 'error',
+                    button: 'OK',
+                })
+                });
+              })
+              postComments.appendChild(addComment)
+
+              response.forEach(ele => {
+                console.log(ele)
+                const commentr = comments.createAppendElement('div', { className: 'comment'});
+                commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
+                const commentInfo = commentr.createAppendElement('div', { className: 'comment-info'});
+                commentInfo.createAppendElement('p', { textContent:ele.username, className: 'comment-username'});
+                commentInfo.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
+                
+                    if(postComments.id == ele.post_id){
+                        postComments.appendChild(commentr);
+                  }
+                })
+            }
         }
     });
 }

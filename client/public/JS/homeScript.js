@@ -204,7 +204,6 @@ function createPost(response) {
               postComments.appendChild(addComment)
 
               response.forEach(ele => {
-                console.log(ele)
                 const commentr = comments.createAppendElement('div', { className: 'comment'});
                 commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
                 const commentInfo = commentr.createAppendElement('div', { className: 'comment-info'});

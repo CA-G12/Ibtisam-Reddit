@@ -93,8 +93,10 @@ function renderAllPosts(response) {
 
         const commentr = comments.createAppendElement('div', { className: 'comment'});
         commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
-        commentr.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
-
+        const commentInfo = commentr.createAppendElement('div', { className: 'comment-info'});
+        commentInfo.createAppendElement('p', { textContent:ele.username, className: 'comment-username'});
+        commentInfo.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
+        
         postid.forEach((postt) => {
           if(postt.id == ele.post_id){
             postt.appendChild(commentr);
