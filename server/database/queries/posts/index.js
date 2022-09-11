@@ -5,6 +5,7 @@ const deletePostQuery = require('./deletePostQuery');
 const editPostQuery = require('./editPostQuery');
 const getCommentsQuery = require('./getCommentsQuery');
 const getUserPostQuery = require('./getUserPostQuery');
+const addCommentQuery = require('./addCommentQuery');
 
 module.exports = {
     getAllPostQuery,
@@ -13,5 +14,6 @@ module.exports = {
     deletePostQuery,
     editPostQuery,
     getUserPostQuery,
-    getCommentsQuery
+    getCommentsQuery,
+    addCommentQuery
 }
