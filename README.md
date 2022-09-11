@@ -1,6 +1,6 @@
 ## Ibtisam Reddit website 
 
-#### **[Demo Link](https://ibtisam-reddit.herokuapp.com/)**
+#### **[GO LIVE](https://ibtisam-reddit.herokuapp.com/)**
 
 ### About this site :heart:
 
