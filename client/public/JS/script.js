@@ -90,7 +90,7 @@ function renderAllPosts(response) {
       comments.setAttribute('class', 'comments');
       
       response.forEach(ele => {
-        console.log(ele)
+
         const commentr = comments.createAppendElement('div', { className: 'comment'});
         commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
         commentr.createAppendElement('p', { className: 'comment-content', textContent: ele.content})

@@ -51,7 +51,7 @@ function createPost(response) {
         
         if(ele.content){
 
-            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
+            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments', id : ele.id});
             const post = postComments.createAppendElement('div', { className : 'post'});
             const votesSection = post.createAppendElement('div', { className : 'votes-section'});
             votesSection.createAppendElement('i', { className : 'fa fa-arrow-up vote-icon'});
@@ -93,48 +93,6 @@ function createPost(response) {
             postIconItem2.createAppendElement('i', { className: 'fa fa-share' });
             const postIconItem3 = postIconsList.createAppendElement('li', { className: 'post-icons-item', textContent: 'Save'});
             postIconItem3.createAppendElement('i', { className: 'fa fa-bookmark' });
-
-            const addComment = postComments.createAppendElement('div', {className: 'add-comment'});
-            addComment.createAppendElement('img', {src: './assets/reddit-logo.png', className: 'comment-img'});
-            addComment.createAppendElement('input', {className: 'comment-text', placeholder: 'Add Your Comment'});
-            addComment.createAppendElement('button', {className: 'add-btn', id: 'add-comment', textContent :'Add'})
-            
-            // const commentValue = document.querySelectorAll('.comment-text');
-            // const addCommBtn = document.querySelectorAll('.add-btn');
-
-            // addCommBtn.forEach((btn)=> {
-            //     btn.addEventListener('click', ()=> {
-            //         console.log('commentValue')
-            //     })
-            // })
-
-            // addurComment.addEventListener('click', () => {
-            //     if(newPost.value){
-            //         fetch(`/addComment/${newPost.value}`)
-            //         .then((res) => res.json())
-            //         .then((data) =>{ 
-            //             if(data.message){ 
-            //                 swal({
-            //                     title: data.message,
-            //                     icon: 'success',
-            //                     button: 'OK',
-            //                 })
-            //                 setTimeout(()=>{ window.location.reload()}, 2000);
-            //             }
-            //         })
-            //         .catch((error) => { 
-            //             swal({
-            //                 title: 'Error!',
-            //                 text: error,
-            //                 icon: 'error',
-            //                 button: 'OK',
-            //             })
-            //         });
-            //         } else {
-            //         swal('Empty Posts are not allowed');
-            //     }
-            //     newPost.value = '';
-            // });
             
             const save = document.createElement('button');
             save.setAttribute('class', 'join-btn')
@@ -199,20 +157,64 @@ function createPost(response) {
             const postid = document.querySelectorAll('.post-comments');
         
             function renderComments(response){
-              const comments =document.createElement('div');
+              const comments = document.createElement('div');
               comments.setAttribute('class', 'comments');
+
+              const addComment = comments.createAppendElement('div', { className: 'add-comment'});
+              addComment.createAppendElement('img', {src: './assets/reddit-logo.png', className: 'comment-img'});
+              const comCon = addComment.createAppendElement('input', {className: 'comment-text', placeholder: 'Add Your Comment'});
+              const  addCo = addComment.createAppendElement('button', {className: 'add-btn', textContent :'Add'})
               
+              addCo.addEventListener('click', (e) => {
+                const commentInfo = {
+                    content : comCon.value,
+                    postId : e.target.parentNode.parentNode.id
+                }
+                fetch(
+                    '/addComment', {
+                    headers :{
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json',
+                    },
+                    method : 'POST',
+                    body : JSON.stringify(commentInfo),
+                  }
+                  )
+                .then(res=>res.json())
+                .then((res) => {
+                    if(res.error){
+                    swal({
+                        title: '',
+                        text: res.error,
+                        icon: 'warning',
+                        button: 'OK',
+                    })
+                    } 
+                    window.location.reload();
+                })
+                .catch((error) => { 
+                swal({
+                    title: 'Error!',
+                    text: error,
+                    icon: 'error',
+                    button: 'OK',
+                })
+                });
+              })
+              postComments.appendChild(addComment)
+
               response.forEach(ele => {
+                console.log(ele)
                 const commentr = comments.createAppendElement('div', { className: 'comment'});
                 commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
-                commentr.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
-        
-                postid.forEach((postt) => {
-                  if(postt.id == ele.post_id){
-                    postt.appendChild(commentr);
+                const commentInfo = commentr.createAppendElement('div', { className: 'comment-info'});
+                commentInfo.createAppendElement('p', { textContent:ele.username, className: 'comment-username'});
+                commentInfo.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
+                
+                    if(postComments.id == ele.post_id){
+                        postComments.appendChild(commentr);
                   }
                 })
-              })
             }
         }
     });
