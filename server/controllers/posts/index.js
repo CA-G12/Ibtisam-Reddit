@@ -5,6 +5,7 @@ const getComments = require('./getComments');
 const editPost = require('./editPost');
 const getUserPost = require('./getUserPosts');
 const addComment = require('./addComment');
+const deleteComment = require('./deleteComment');
 
 module.exports = {
     getPosts,
@@ -13,5 +14,6 @@ module.exports = {
     editPost,
     getComments,
     getUserPost,
-    addComment
+    addComment,
+    deleteComment
 };
