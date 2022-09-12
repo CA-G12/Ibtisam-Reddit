@@ -40,7 +40,7 @@ function createPost(data) {
         namee.textContent = '@'+ele.username;
         if(ele.content){
 
-            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments'});
+            const postComments = postsContainer.createAppendElement('div', { className : 'post-comments', id: ele.id});
             const post = postComments.createAppendElement('div', { className : 'post'});
             const votesSection = post.createAppendElement('div', { className : 'votes-section'});
             votesSection.createAppendElement('i', { className : 'fa fa-arrow-up vote-icon'});
@@ -150,7 +150,7 @@ function createPost(data) {
               addComment.createAppendElement('img', {src: './assets/reddit-logo.png', className: 'comment-img'});
               const comCon = addComment.createAppendElement('input', {className: 'comment-text', placeholder: 'Add Your Comment'});
               const  addCo = addComment.createAppendElement('button', {className: 'add-btn', textContent :'Add'})
-              
+
               addCo.addEventListener('click', (e) => {
                 const commentInfo = {
                     content : comCon.value,
@@ -191,12 +191,37 @@ function createPost(data) {
 
               response.forEach(ele => {
                 console.log(ele)
-                const commentr = comments.createAppendElement('div', { className: 'comment'});
+                const commentr = comments.createAppendElement('div', { className: 'comment', id: ele.id});
                 commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
                 const commentInfo = commentr.createAppendElement('div', { className: 'comment-info'});
                 commentInfo.createAppendElement('p', { textContent:ele.username, className: 'comment-username'});
                 commentInfo.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
                 
+                const deleteCom = commentr.createAppendElement('button', { className: 'delete-btn fa fa-trash', id: 'delete-comment' })
+                deleteCom.addEventListener('click', ()=>{
+                    fetch(`/deleteComment/${ele.id}`)
+                    .then(res=>res.json())
+                .then((res) => {
+                    if(res.error){
+                    swal({
+                        title: '',
+                        text: res.error,
+                        icon: 'warning',
+                        button: 'OK',
+                    })
+                    } 
+                    window.location.reload();
+                })
+                .catch((error) => { 
+                swal({
+                    title: 'Error!',
+                    text: error,
+                    icon: 'error',
+                    button: 'OK',
+                })
+                });
+                })
+
                     if(postComments.id == ele.post_id){
                         postComments.appendChild(commentr);
                   }
