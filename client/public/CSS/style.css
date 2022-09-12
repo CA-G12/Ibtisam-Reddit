@@ -1114,3 +1114,8 @@ p.comment-content {
     font-size: 16px;
     font-weight: lighter;
 }
+
+button#delete-comment {
+    font-size: 22px;
+    margin-left: 68%;
+}
