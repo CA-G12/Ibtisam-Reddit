@@ -146,9 +146,8 @@ button.sign-up {
 }
 
 .user-profile:hover {
-    border: 1px solid #8080803d;
-    border-radius: 5px;
-    background-color: #dfd8d817;
+    transform: scale(1.03);
+    cursor: pointer;
 }
 /* End Styling Header */
 
@@ -1113,4 +1112,9 @@ p.comment-username {
 p.comment-content {
     font-size: 16px;
     font-weight: lighter;
+}
+
+button#delete-comment {
+    font-size: 22px;
+    margin-left: 75%;
 }

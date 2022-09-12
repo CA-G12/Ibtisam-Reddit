@@ -153,9 +153,7 @@ function createPost(response) {
                   button: 'OK',
               })
             });
-            
-            const postid = document.querySelectorAll('.post-comments');
-        
+                    
             function renderComments(response){
               const comments = document.createElement('div');
               comments.setAttribute('class', 'comments');
@@ -204,12 +202,35 @@ function createPost(response) {
               postComments.appendChild(addComment)
 
               response.forEach(ele => {
-                const commentr = comments.createAppendElement('div', { className: 'comment'});
+                const commentr = comments.createAppendElement('div', { className: 'comment', id: ele.id});
                 commentr.createAppendElement('img', { src:ele.avatar, className: 'comment-logo'});
                 const commentInfo = commentr.createAppendElement('div', { className: 'comment-info'});
                 commentInfo.createAppendElement('p', { textContent:ele.username, className: 'comment-username'});
                 commentInfo.createAppendElement('p', { className: 'comment-content', textContent: ele.content})
-                
+                const deleteCom = commentr.createAppendElement('button', { className: 'delete-btn fa fa-trash', id: 'delete-comment' })
+                deleteCom.addEventListener('click', ()=>{
+                    fetch(`/deleteComment/${ele.id}`)
+                    .then(res=>res.json())
+                .then((res) => {
+                    if(res.error){
+                    swal({
+                        title: '',
+                        text: res.error,
+                        icon: 'warning',
+                        button: 'OK',
+                    })
+                    } 
+                    window.location.reload();
+                })
+                .catch((error) => { 
+                swal({
+                    title: 'Error!',
+                    text: error,
+                    icon: 'error',
+                    button: 'OK',
+                })
+                });
+                })
                     if(postComments.id == ele.post_id){
                         postComments.appendChild(commentr);
                   }
